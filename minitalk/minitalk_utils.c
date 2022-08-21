@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/21 11:45:42 by enogawa           #+#    #+#             */
+/*   Updated: 2022/08/21 11:45:43 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 int	ft_atoi(const char *str)
@@ -25,7 +37,6 @@ int	ft_atoi(const char *str)
 	}
 	return (ans * m);
 }
-
 
 size_t	ft_strlen(const char *str)
 {
@@ -63,20 +74,6 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &c, 1);
 		num -= (num / i) * i;
 		i /= 10;
-	}
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
 	}
 }
 

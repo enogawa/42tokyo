@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/21 11:45:44 by enogawa           #+#    #+#             */
+/*   Updated: 2022/08/21 11:45:45 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 void	send_str(int pid, char *str)
@@ -12,11 +24,11 @@ void	send_str(int pid, char *str)
 		shift_num = 0;
 		while (shift_num < 8)
 		{
-			if(str[i] >> shift_num & 0b000000001)
+			if (str[i] >> shift_num & 0b000000001)
 				kill_status = kill(pid, SIGUSR1);
 			else
 				kill_status = kill(pid, SIGUSR2);
-			if(kill_status == -1)
+			if (kill_status == -1)
 				write(2, "kill error", 11);
 			shift_num++;
 			usleep(10000);
@@ -42,4 +54,3 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	send_str(pid, argv[2]);
 }
-//test

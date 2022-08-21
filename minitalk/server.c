@@ -1,12 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/21 11:45:38 by enogawa           #+#    #+#             */
+/*   Updated: 2022/08/21 11:45:39 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 t_signal	g_signal;
-
-void	get_pid(void)
-{
-	ft_putnbr_fd(getpid(), STDOUT_FILENO);
-	ft_putstr_fd("\n", STDOUT_FILENO);
-}
 
 void	put_character(int signal)
 {
@@ -19,7 +25,6 @@ void	put_character(int signal)
 		g_signal.count = 8;
 		return ;
 	}
-
 	g_signal.count--;
 }
 
@@ -27,7 +32,8 @@ int	main(void)
 {
 	g_signal.letter = 0;
 	g_signal.count = 8;
-	get_pid();
+	ft_putnbr_fd(getpid(), STDOUT_FILENO);
+	write(1, "\n", 1);
 	signal(SIGUSR1, put_character);
 	signal(SIGUSR2, put_character);
 	while (1)
