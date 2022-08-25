@@ -7,7 +7,9 @@
 
 
 
-int	ft_atoi(const char *str);
+int	push_swap_atoi(const char *str);
+char	*ft_strdup(const char	*str);
+size_t	ft_strlen(const char *str);
 
 
 typedef struct stacks{

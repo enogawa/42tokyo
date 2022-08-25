@@ -1,6 +1,16 @@
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
+}
+
+int	push_swap_atoi(const char *str)
 {
 	long int		ans;
 	size_t			i;
@@ -24,4 +34,22 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (ans * m);
+}
+
+char	*ft_strdup(const char	*str)
+{
+	char	*ans;
+	size_t	i;
+
+	i = 0;
+	ans = malloc((ft_strlen(str) + 1) * sizeof(char));
+	if (!ans)
+		return (NULL);
+	while (str[i] != '\0')
+	{
+		ans[i] = str[i];
+		i++;
+	}
+	ans[i] = '\0';
+	return (ans);
 }
