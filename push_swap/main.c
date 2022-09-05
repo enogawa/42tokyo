@@ -65,7 +65,7 @@ int main (int argc, char **argv)
     }
     //////////////////////////////////test_num_sort
     i = 0;
-    printf("num_sort\n");
+    printf("num_sorted\n");
     while (i < (argc - 1))
     {
         printf("%d,", num[i]);
