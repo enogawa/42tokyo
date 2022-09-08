@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:27:20 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/01 23:16:35 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/08 14:52:24 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int	argc, char	**argv)
 	int		fd;
 	int		line;
 	char	**map;
+	t_mlx_data	*mlx_data;
 
 	if (args_error_handler(argc, argv))
 		return (0);
@@ -27,16 +28,10 @@ int	main(int	argc, char	**argv)
 		return (1);
 	}
 	line = 0;
-	map = put_gnl(fd, line);
-	// i = 0;
-	// while (map[i])
-	// {
-	// 	printf("map; %s", map[i]);
-	// 	i++;
-	// }
-	// printf("\n");
-	if (map_error_handler(map))
+	mlx_data->map = put_gnl(fd, line);
+	if (map_error_handler(mlx_data->map))
 		return (0);
-	system("leaks so_long");
+	init_mlx_map(mlx_data);
+	//system("leaks so_long");
 	return (0);
 }
