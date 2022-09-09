@@ -1,6 +1,6 @@
 #!/bin/sh
 
-make all clean -C ../
+make all clean -sC ../
 
 
 printf "~~~~~~~~~~~~~~~test start~~~~~~~~~~~~~~~~~~~~\n\n\n"
@@ -70,17 +70,17 @@ printf "                valid case!                \n"
 printf "=============================================\n\n"
 
 printf "bigmap.ber -----------------------------\n"
-../so_long valid/bigmap.ber | grep "total leaked bytes." && printf "\n"
+../so_long valid/bigmap.ber 
 printf "c_map.ber -----------------------------\n"
-../so_long valid/c_map.ber | grep "total leaked bytes." && printf "\n"
+../so_long valid/c_map.ber 
 printf "no_nl.ber -----------------------------\n"
-../so_long valid/no_nl.ber | grep "total leaked bytes." && printf "\n"
+../so_long valid/no_nl.ber 
 printf "simple.ber -----------------------------\n"
-../so_long valid/simple.ber | grep "total leaked bytes." && printf "\n"
+../so_long valid/simple.ber 
 printf "test.ber -----------------------------\n"
-../so_long valid/test.ber | grep "total leaked bytes." && printf "\n"
+../so_long valid/test.ber 
 
 printf "\n~~~~~~~~~~~~~~~TEST END~~~~~~~~~~~~~~~~~~~~\n\n\n"
 
 
-make fclean -C ../
+# make fclean -sC ../
