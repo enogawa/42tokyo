@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:27:20 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/09 16:48:40 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:46:12 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int	argc, char	**argv)
 	if (map_error_handler(mlx_data->map))
 		return (1);
 	init_mlx_map(mlx_data);
-	//mlx_loop(mlx_data->mlx);
+	mlx_loop(mlx_data->mlx);
 	return (0);
 }
 
