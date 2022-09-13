@@ -11,12 +11,15 @@ int	check_collections(t_mlx_data *mlx_data)
 		y = 0;
 		while (mlx_data->map[x][y])
 		{
-			if (mlx_data->map[x][y])
+			if (mlx_data->map[x][y] == 'C')
 			{
-				
+				return (1);
 			}
+			y++;
 		}
+		x++;
 	}
+	return (0);
 }
 
 void	make_it_finished(t_mlx_data *mlx_data)
@@ -27,7 +30,7 @@ void	make_it_finished(t_mlx_data *mlx_data)
 	destroy_mlx(mlx_data);
 }
 
-void	move_p(t_mlx_data	*mlx_data, int	x, int y)
+void	move_p(t_mlx_data	*mlx_data, int	y, int x)
 {
 	if (mlx_data->map[mlx_data->player_y + y][mlx_data->player_x + x] != '1')
 	{
@@ -50,15 +53,17 @@ void	move_p(t_mlx_data	*mlx_data, int	x, int y)
 
 int	move_maps(int	key_num, t_mlx_data *mlx_data)
 {
+	//(void)mlx_data;
+	//ft_printf("test'%d'", key_num);
 	if(key_num == ESC_KEY)
 		destroy_mlx(mlx_data);
 	if(key_num == 'w')
-		move_p(mlx_data, 0, -1);
-	if (key_num == 'd')
-		move_p(mlx_data, 1, 0);
-	if (key_num == 'a')
 		move_p(mlx_data, -1, 0);
-	if (key_num == 's')
+	if (key_num == 'd')
 		move_p(mlx_data, 0, 1);
+	if (key_num == 'a')
+		move_p(mlx_data, 0, -1);
+	if (key_num == 's')
+		move_p(mlx_data, 1, 0);
 	return (0);
 }

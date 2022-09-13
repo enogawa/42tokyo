@@ -9,10 +9,10 @@ NAME         =    so_long
 CC           =    cc
 CFLAGS       =    -Wall -Werror -Wextra -I ./include
 
-MLX_PATH     =    ./mlx_linux/
+MLX_PATH     =    ./minilibx-linux/
 MLX_FLAG     =    -L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
 MLX_MAKE     =    $(MLX)
-MLX          =    ./mlx_linux/libmlx_Darwin.a
+MLX          =    ./minilibx-linux/libmlx_Darwin.a ./minilibx-linux/libmlx.a
 
 
 LIBFTDIR     =    libft

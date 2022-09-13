@@ -9,7 +9,7 @@ int	destroy_mlx(t_mlx_data *mlx_data)
 	mlx_destroy_image(mlx_data->mlx, mlx_data->player_image);
 	mlx_destroy_image(mlx_data->mlx, mlx_data->exit_image);
 	mlx_destroy_image(mlx_data->mlx, mlx_data->collection_image);
-	mlx_destroy_image(mlx_data->mlx, mlx_data->mlx_win);
+	//mlx_destroy_image(mlx_data->mlx, mlx_data->mlx_win);
 	x = 0;
 	while (mlx_data->map[x])
 	{

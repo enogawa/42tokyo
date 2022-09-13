@@ -8,7 +8,7 @@
 # include "./ft_printf.h"
 # include "./get_next_line.h"
 # include "./libft.h"
-# include "../mlx_linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 # define WINSIZE 50
 #define ESC_KEY 65307
@@ -37,7 +37,7 @@ int		args_error_handler(int argc, char **argv);
 int		map_error_handler(char **map);
 size_t	ft_strlen_so_long(const char *str);
 char	**put_gnl(int fd, int line);
-void	init_mlx_map(t_mlx_data *mlx_data);
+int		init_mlx_map(t_mlx_data *mlx_data);
 void	mlx_image_init(t_mlx_data	*mlx_data);
 int		put_inside_map(t_mlx_data	*mlx_data);
 int		destroy_mlx(t_mlx_data *mlx_data);
