@@ -11,6 +11,7 @@
 # include "../mlx_linux/mlx.h"
 
 # define WINSIZE 50
+#define ESC_KEY 65307
 
 
 typedef struct s_mlx_data {
@@ -38,6 +39,10 @@ size_t	ft_strlen_so_long(const char *str);
 char	**put_gnl(int fd, int line);
 void	init_mlx_map(t_mlx_data *mlx_data);
 void	mlx_image_init(t_mlx_data	*mlx_data);
-void	put_inside_map(t_mlx_data	*mlx_data);
+int		put_inside_map(t_mlx_data	*mlx_data);
+int		destroy_mlx(t_mlx_data *mlx_data);
+int		move_maps(int	key_num, t_mlx_data *mlx_data);
+int 	put_inside_map(t_mlx_data	*mlx_data);
+void	mlx_image_init(t_mlx_data	*mlx_data);
 
 #endif

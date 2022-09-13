@@ -24,7 +24,7 @@ GNL_PATH     =    ./get_next_line/
 GNL_OBJS     =    $(GNL_SRC:.c=.o)
 
 SRCS         =    ./src/so_long.c ./src/args_error_handler.c ./src/ft_strlen_so_long.c ./src/map_error_handler.c ./src/make_map.c \
-				./src/put_gnl.c
+				./src/put_gnl.c ./src/destroy_mlx.c ./src/move.c
 
 OBJS         =    ${SRCS:.c=.o}
 
