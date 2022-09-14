@@ -5,7 +5,7 @@ void	mlx_image_init(t_mlx_data	*mlx_data)
 	int size = WINSIZE;
 	mlx_data->wall_image = mlx_xpm_file_to_image(mlx_data->mlx, "./images/wall-_1_.xpm", &size, &size);
 	mlx_data->space_image = mlx_xpm_file_to_image(mlx_data->mlx, "./images/white-_1_.xpm", &size, &size);
-	mlx_data->player_image = mlx_xpm_file_to_image(mlx_data->mlx, "./images/lucas-_1_.xpm", &size, &size);
+	mlx_data->player_image = mlx_xpm_file_to_image(mlx_data->mlx, "./images/lucas-_3__3.xpm", &size, &size);
 	mlx_data->collection_image = mlx_xpm_file_to_image(mlx_data->mlx, "./images/ball-_1_.xpm", &size, &size);
 	mlx_data->exit_image = mlx_xpm_file_to_image(mlx_data->mlx, "./images/exit1.xpm", &size, &size);
 }
