@@ -12,10 +12,10 @@ char	*ft_strdup(const char	*str);
 size_t	ft_strlen(const char *str);
 
 
-typedef struct stacks{
-    int date;
-    struct stacks *next;
-    struct stacks *prev;
-}stacks;
+typedef struct s_stacks{
+    long data;
+    struct s_stacks *next;
+    struct s_stacks *prev;
+}t_stacks;
 
 #endif

@@ -17,17 +17,7 @@ int main (int argc, char **argv)
         num[i] = push_swap_atoi(argv[i + 1]);
         i++;
     }
-    /////////////////////////////test_num
-    i = 0;
-    printf("num\n");
-    while (i < (argc - 1))
-    {
-        printf("%d,", num[i]);
-        i++;
-    }
-    printf("\n\n");
     //////////////////////////////test_num
-
     i = 0;
     dup = malloc(sizeof(char **) * argc - 1);
     dup_num = malloc(sizeof(int) * (argc - 1));
@@ -40,8 +30,6 @@ int main (int argc, char **argv)
         i++;
     }
     printf("\n\n");//test
-
-
     j = 0;
     while (j < i)
     {
@@ -65,16 +53,6 @@ int main (int argc, char **argv)
     }
     //////////////////////////////////test_num_sort
     i = 0;
-    printf("num_sorted\n");
-    while (i < (argc - 1))
-    {
-        printf("%d,", num[i]);
-        i++;
-    }
-    printf("\n\n");
-    //////////////////////////////////test_num_sort
-
-    i = 0;
     while (i < (argc - 1))
     {
         j = 0;
@@ -89,17 +67,37 @@ int main (int argc, char **argv)
         }
         i++;
     }
-
-    //////////////////////////////test_dudp_num_zip
-    i = 0;
-    printf("dudp_num_zip\n");
-    while(i < (argc - 1))
-    {
-        printf("%d,", dup_num[i]);
-        i++;
-    }
     //////////////////////////////test_dudp_num_zip
     return (0);
 }
 
+
 //return(0) -> exit ????
+    /////////////////////////////test_num
+    // i = 0;
+    // printf("num\n");
+    // while (i < (argc - 1))
+    // {
+    //     printf("%d,", num[i]);
+    //     i++;
+    // }
+    // printf("\n\n");
+
+    //////////////////////////////////test_num_sort
+    // i = 0;
+    // printf("num_sorted\n");
+    // while (i < (argc - 1))
+    // {
+    //     printf("%d,", num[i]);
+    //     i++;
+    // }
+    // printf("\n\n");
+
+    //////////////////////////////test_dudp_num_zip
+    // i = 0;
+    // printf("dudp_num_zip\n");
+    // while(i < (argc - 1))
+    // {
+    //     printf("%d,", dup_num[i]);
+    //     i++;
+    // }
