@@ -10,6 +10,7 @@
 int	push_swap_atoi(const char *str);
 char	*ft_strdup(const char	*str);
 size_t	ft_strlen(const char *str);
+void	list_init(int	*ziped_num);
 
 
 typedef struct s_stacks{

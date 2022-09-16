@@ -21,15 +21,15 @@ int main (int argc, char **argv)
     i = 0;
     dup = malloc(sizeof(char **) * argc - 1);
     dup_num = malloc(sizeof(int) * (argc - 1));
-    printf("dup_num\n");//test_dup_num
+    //printf("dup_num\n");//test_dup_num
     while(argv[i + 1])
     {
         dup[i] = ft_strdup(argv[i + 1]);
         dup_num[i] = push_swap_atoi(dup[i]);
-        printf("%d,", dup_num[i]);//test_dup_num
+        //printf("%d,", dup_num[i]);//test_dup_num
         i++;
     }
-    printf("\n\n");//test
+    //printf("\n\n");//test
     j = 0;
     while (j < i)
     {
@@ -67,6 +67,8 @@ int main (int argc, char **argv)
         }
         i++;
     }
+    dup_num[i] = -1;
+    list_init(dup_num);
     //////////////////////////////test_dudp_num_zip
     return (0);
 }

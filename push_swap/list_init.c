@@ -3,8 +3,6 @@
 void	add_list(t_stacks **a_list, t_stacks *new)
 {
 	t_stacks	*tmp;
-
-	a_list = malloc(sizeof(t_stacks));
 	tmp = *a_list;
 
 	if(tmp == NULL)
@@ -25,26 +23,44 @@ void	add_list(t_stacks **a_list, t_stacks *new)
 
 }
 
-int	main (void)
+void	list_init(int	*ziped_num)
 {
 	t_stacks	*num;
 	t_stacks	*a_list;
+	t_stacks	*tmp;
 	long i = 0;
 
 	num = malloc(sizeof(t_stacks));
-	while (i <= 10)
-	{
-		num->data = i;
-		add_list(&a_list, num);
-		num = num->next;
-		i++;
-	}
+	printf("ziped\n");//test
+    while(ziped_num[i] >= 0)
+    {
+        printf("%d,", ziped_num[i]);
+        i++;
+    }//test
 	i = 0;
-	while (i <= 10)
+	while (ziped_num[i] >= 0)
 	{
-		printf("a_list %lu\n", a_list->data);
-		a_list = a_list->prev;
+		num[i].data = ziped_num[i];
+		num[i].prev = NULL;
+		num[i].next = NULL;
+		add_list(&a_list, &num[i]);
 		i++;
 	}
-	return (0);
+	// tmp = a_list;
+	// i = 0;
+	// while (ziped_num[i] >= 0)
+	// {
+	// 	printf("prev;  %lu\n", tmp->data);
+	// 	tmp = tmp->prev;
+	// 	i++;
+	// }
+	// printf("\n");
+	// i = 0;
+	// while (ziped_num[i] >= 0)
+	// {
+	// 	printf("next;  %lu\n", tmp->data);
+	// 	tmp = tmp->next;
+	// 	i++;
+	// }
+	return ;
 }
