@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/21 17:36:53 by enogawa           #+#    #+#             */
+/*   Updated: 2022/09/21 17:36:59 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int main (int argc, char **argv)
@@ -9,6 +21,8 @@ int main (int argc, char **argv)
     int k;
     int tmp;
     char **dup;
+    t_stacks    *a_list;
+    t_stacks    *new;
 
     i = 0;
     num = malloc(sizeof(int) * (argc - 1));
@@ -67,9 +81,26 @@ int main (int argc, char **argv)
         }
         i++;
     }
-    dup_num[i] = -1;
-    list_init(dup_num);
     //////////////////////////////test_dudp_num_zip
+    dup_num[i] = -1;
+    t_stacks    *tmp1;
+    a_list = list_new(dup_num[0]);
+    i = 1;
+    while (dup_num[i] != -1)
+    {
+        new = list_new(dup_num[i]);
+        printf("new[i]; %ld,", new->data);
+        lst_add_back(a_list, new);
+        a_list = list_mv_back(a_list);
+        printf("a_list[i]; %ld\n", a_list->data);
+        i++;
+    }
+    while (i > 0)
+    {
+        printf("%ld,", a_list->data);
+        a_list = list_mv_prev(a_list);
+        i--;
+    }
     return (0);
 }
 
