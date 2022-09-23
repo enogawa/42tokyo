@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:36:53 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/21 17:36:59 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/22 11:05:17 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main (int argc, char **argv)
     int k;
     int tmp;
     char **dup;
-    t_stacks    *a_list;
+    t_stacks    *stack_a;
     t_stacks    *new;
 
     i = 0;
@@ -84,21 +84,21 @@ int main (int argc, char **argv)
     //////////////////////////////test_dudp_num_zip
     dup_num[i] = -1;
     t_stacks    *tmp1;
-    a_list = list_new(dup_num[0]);
+    stack_a = list_new(dup_num[0]);
     i = 1;
     while (dup_num[i] != -1)
     {
         new = list_new(dup_num[i]);
         printf("new[i]; %ld,", new->data);
-        lst_add_back(a_list, new);
-        a_list = list_mv_back(a_list);
-        printf("a_list[i]; %ld\n", a_list->data);
+        lst_add_back(stack_a, new);
+        stack_a = list_mv_back(stack_a);
+        printf("stack_a[i]; %ld\n", stack_a->data);
         i++;
     }
     while (i > 0)
     {
-        printf("%ld,", a_list->data);
-        a_list = list_mv_prev(a_list);
+        printf("%ld,", stack_a->data);
+        stack_a = list_mv_prev(stack_a);
         i--;
     }
     return (0);

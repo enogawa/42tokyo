@@ -3,11 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:50:01 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/14 11:50:02 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/22 11:55:11 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-˙
+#include "../push_swap.h"
+
+void	ra(t_stacks *stacks)
+{
+	
+}
