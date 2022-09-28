@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:37:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/22 11:16:48 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/25 19:43:22 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int 	    push_swap_atoi(const char *str);
 char    	*ft_strdup(const char	*str);
 size_t  	ft_strlen(const char *str);
 void    	list_init(int	*ziped_num);
-t_stacks    *list_new(int	num);
+t_stacks    *list_new(long	num);
 void	    lst_add_back(t_stacks *stacks, t_stacks *add);
 t_stacks    *list_mv_back(t_stacks *stacks);
 t_stacks    *list_mv_prev(t_stacks *stacks);

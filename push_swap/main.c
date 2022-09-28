@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:36:53 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/22 11:05:17 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/26 05:34:21 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,25 +82,24 @@ int main (int argc, char **argv)
         i++;
     }
     //////////////////////////////test_dudp_num_zip
-    dup_num[i] = -1;
-    t_stacks    *tmp1;
-    stack_a = list_new(dup_num[0]);
-    i = 1;
-    while (dup_num[i] != -1)
+    stack_a = list_new(-1);
+    j = 0;
+    while (j < i)
     {
-        new = list_new(dup_num[i]);
-        printf("new[i]; %ld,", new->data);
+        //printf("%d,", i);
+        new = list_new(dup_num[j]);
+        //printf("new[%d]; %ld,", i, new->data);
         lst_add_back(stack_a, new);
         stack_a = list_mv_back(stack_a);
-        printf("stack_a[i]; %ld\n", stack_a->data);
-        i++;
+        printf("stack_a[%d]; %ld\n", j, stack_a->data);
+        j++;
     }
-    while (i > 0)
-    {
-        printf("%ld,", stack_a->data);
-        stack_a = list_mv_prev(stack_a);
-        i--;
-    }
+    // while (i > 0)
+    // {
+    //     printf("\n%ld", stack_a->data);
+    //     stack_a = stack_a->prev;
+    //     i--;
+    // }
     return (0);
 }
 
@@ -125,7 +124,6 @@ int main (int argc, char **argv)
     //     i++;
     // }
     // printf("\n\n");
-
     //////////////////////////////test_dudp_num_zip
     // i = 0;
     // printf("dudp_num_zip\n");
