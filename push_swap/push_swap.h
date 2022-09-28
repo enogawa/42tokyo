@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:37:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/25 19:43:22 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/28 21:15:04 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ t_stacks    *list_new(long	num);
 void	    lst_add_back(t_stacks *stacks, t_stacks *add);
 t_stacks    *list_mv_back(t_stacks *stacks);
 t_stacks    *list_mv_prev(t_stacks *stacks);
-
+void	    radix_sort(t_stacks **stack_a);
+void	pa(t_stacks **stack_a, t_stacks **stack_b);
+void	pb(t_stacks **stack_a, t_stacks **stack_b);
+void	rra(t_stacks **stack_a, int i);
+void	rra(t_stacks **stack_b, int i);
+void	rrr(t_stacks **stack_a, t_stacks **stack_b);
+void	ra(t_stacks **stack_a, int i);
+void	rb(t_stacks **stack_b, int i);
+void	rr(t_stacks **stack_a, t_stacks **stack_b);
+void	sa(t_stacks **stacks, int i);
+void	sb(t_stacks **stacks, int i);
+void	ss(t_stacks **stack_a, t_stacks **stack_b);
 
 #endif
