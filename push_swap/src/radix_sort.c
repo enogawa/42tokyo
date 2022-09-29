@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 03:21:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/29 17:15:18 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/29 17:48:10 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,34 @@ void	binary_num_radix_sort(t_stacks *stack_a, size_t bit_len, size_t num_len)
 	size_t		shift_num;
 	size_t		pb_count;
 	t_stacks	*stack_b;
+	int			i;
 
 	shift_num = 0;
-	printf("bit; %zu, ", bit_len);
-	printf("num; %zu", num_len);
+	printf("\nbit; %zu, ", bit_len);//test
+	printf("num; %zu", num_len);//test
 	while (bit_len-- >= 1)
 	{
-		while (num_len >= 1)
+		i = 0;
+		while (i < num_len)
 		{
-			if (stack_a->data >> shift_num && 0b000000001)
-				ra(&stack_a, 0);
+			if (stack_a->data >> shift_num & 0b000000001)
+			{
+				//ra(&stack_a, 0);
+				printf("\n%zu,", shift_num);//test
+			}
 			else
 			{
 				//pb(&stack_a, &stack_b);
 				pb_count++;	
 			}
-			shift_num++;
 			stack_a = stack_a->next;
-			num_len--;
+			i++;
 		}
 		// while (pb_count-- > 0)
 		// {
 		// 	pa(&stack_a, &stack_b);
 		// }
+		shift_num++;
 	}
 }
 
