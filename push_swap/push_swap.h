@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:37:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/28 21:15:04 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/29 16:49:52 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ size_t  	ft_strlen(const char *str);
 void    	list_init(int	*ziped_num);
 t_stacks    *list_new(long	num);
 void	    lst_add_back(t_stacks *stacks, t_stacks *add);
-t_stacks    *list_mv_back(t_stacks *stacks);
-t_stacks    *list_mv_prev(t_stacks *stacks);
-void	    radix_sort(t_stacks **stack_a);
+t_stacks    *list_mv_foot(t_stacks *stacks);
+t_stacks    *list_mv_head(t_stacks *stacks);
+void	    radix_sort(t_stacks *stack_a, int   num_len);
 void	pa(t_stacks **stack_a, t_stacks **stack_b);
 void	pb(t_stacks **stack_a, t_stacks **stack_b);
 void	rra(t_stacks **stack_a, int i);

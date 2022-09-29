@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:49:57 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/28 19:39:13 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/29 11:47:42 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	rra(t_stacks **stack_a, int i)
 	t_stacks	*head;
 	t_stacks	*foot;
 
-	head = list_mv_prev(*stack_a);
-	foot = list_mv_back(*stack_a);
+	head = list_mv_head(*stack_a);
+	foot = list_mv_foot(*stack_a);
 	foot->prev->next = NULL;
 	(*stack_a)->prev = NULL;
 	*stack_a = foot;
@@ -35,8 +35,8 @@ void	rrb(t_stacks **stack_b, int i)
 	t_stacks	*head;
 	t_stacks	*foot;
 
-	head = list_mv_prev(*stack_b);
-	foot = list_mv_back(*stack_b);
+	head = list_mv_head(*stack_b);
+	foot = list_mv_foot(*stack_b);
 	foot->prev->next = NULL;
 	(*stack_b)->prev = NULL;
 	*stack_b = foot;

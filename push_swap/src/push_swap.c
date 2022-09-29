@@ -6,30 +6,31 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/28 21:23:05 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/29 16:50:20 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	put_num_into_stacks(int		*zipped_num, int i)
+t_stacks	*put_num_into_stacks(int		*zipped_num, int i)
 {
 	t_stacks	*stack_a;
+    t_stacks	*node;
 	t_stacks	*new;
 	int 		j;
 	
 	stack_a = list_new(-1);
+    node = stack_a;//test
     j = 0;
     while (j < i)
     {
         new = list_new(zipped_num[j]);
         lst_add_back(stack_a, new);
-        stack_a = list_mv_back(stack_a);
+        stack_a = list_mv_foot(stack_a);
         printf("stack_a[%d]; %ld\n", j, stack_a->data);//test
         j++;
     }
-    stack_a = list_mv_prev(stack_a);//test
-    printf("test; %ld", stack_a->data);//test
+    return (stack_a);
 }
 
 int		*compression(int	*num, int	*zipped_num, int	i)
@@ -64,21 +65,22 @@ int		main(int argc, char **argv)
 {
     int         *num;
     int         *zipped_num;
-    int         i;
+    int         num_len;
 	t_stacks	*stack_a;
 
-    i = 0;
+    num_len = 0;
     num = malloc(sizeof(int) * (argc - 1));
-    while(argv[i + 1])
+    while(argv[num_len + 1])
     {
-        num[i] = push_swap_atoi(argv[i + 1]);
-        i++;
+        num[num_len] = push_swap_atoi(argv[num_len + 1]);
+        num_len++;
     }
     zipped_num = malloc(sizeof(int) * (argc - 1));
-	zipped_num = compression(num, zipped_num, i);
-	put_num_into_stacks(zipped_num, i);
+	zipped_num = compression(num, zipped_num, num_len);
+	stack_a = put_num_into_stacks(zipped_num, num_len);
     //printf("test; %ld", stack_a->data);
-	radix_sort(&stack_a);
+    stack_a = list_mv_head(stack_a);
+	radix_sort(stack_a, num_len);
 	return (0);
 }
 //printf("zipped_num[%d]; %d\n", j, zipped_num[j]);
