@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/29 16:50:20 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/09/30 15:15:31 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 t_stacks	*put_num_into_stacks(int		*zipped_num, int i)
 {
 	t_stacks	*stack_a;
-    t_stacks	*node;
 	t_stacks	*new;
 	int 		j;
 	
 	stack_a = list_new(-1);
-    node = stack_a;//test
+
     j = 0;
     while (j < i)
     {
@@ -80,6 +79,9 @@ int		main(int argc, char **argv)
 	stack_a = put_num_into_stacks(zipped_num, num_len);
     //printf("test; %ld", stack_a->data);
     stack_a = list_mv_head(stack_a);
+    if (already_sorted(stack_a))
+       return (0);
+    // printf("aaa");
 	radix_sort(stack_a, num_len);
 	return (0);
 }

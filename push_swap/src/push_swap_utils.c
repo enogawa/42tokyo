@@ -53,3 +53,14 @@ char	*ft_strdup(const char	*str)
 	ans[i] = '\0';
 	return (ans);
 }
+
+int		already_sorted(t_stacks	*stack_a)
+{
+	while (stack_a->next->data != -1)
+	{
+		if (stack_a->data > stack_a->next->data)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
