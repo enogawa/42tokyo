@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/07 11:38:23 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/07 16:03:45 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,14 @@ int		main(int argc, char **argv)
        return (0);
     if (num_len <= 3)
         u4_sort(stack_a, num_len);
-    // else if (num_len <= 6)
-    // {
-    //     u7_sort(stack_a, num_len);
-    // }
+    else if (num_len <= 6)
+    {
+        u7_sort(stack_a, num_len);
+    }
     else
 	    radix_sort(stack_a, num_len);
-    printf("finally: ");//test
+    stack_a = list_mv_head(stack_a);
+    printf("ans: ");//test
 	command_check(stack_a);//test
 	return (0);
 }

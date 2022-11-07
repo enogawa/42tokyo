@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:50:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/10/28 10:17:48 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/07 15:37:32 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,27 @@
 
 void	sa(t_stacks **stacks, int i)
 {
-	t_stacks	*tmp;
+	// t_stacks	*tmp;
 	t_stacks	*node;
+	t_stacks	*head;
 
-	tmp = *stacks;
-	node = (*stacks)->prev;
-	*stacks = (*stacks)->next;
-	node->next = *stacks;
+	// tmp = *stacks;
+	// node = (*stacks)->prev;
+	// *stacks = (*stacks)->next;
+	// node->next = *stacks;
+	// (*stacks)->prev = node;
+	// tmp->next = node->prev;
+	// node->prev->prev = tmp;
+	// (*stacks)->next = tmp;
+	head = list_mv_head(*stacks);
+	node = head->prev;
+	*stacks = head->next;
+	(*stacks)->next->prev = head;
+	head->next = (*stacks)->next;
+	(*stacks)->next = head;
 	(*stacks)->prev = node;
-	tmp->next = node->prev;
-	node->prev->prev = tmp;
-	(*stacks)->next = tmp;
+	node->next = *stacks;
+	head->prev = *stacks;
 	if (!i)
 	{
 		write(1, "sa\n", 4);
