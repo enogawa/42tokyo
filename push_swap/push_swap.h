@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:37:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/30 19:50:06 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/10/26 16:44:22 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	    rr(t_stacks **stack_a, t_stacks **stack_b);
 void	    sa(t_stacks **stacks, int i);
 void	    sb(t_stacks **stacks, int i);
 void    	ss(t_stacks **stack_a, t_stacks **stack_b);
+void	    u4_sort(t_stacks *stack_a, int num_len);
+void	    u7_sort(t_stacks *stack_a, int num_len);
 void command_check(t_stacks	*stack_a);//test
 void check_push(t_stacks *a, t_stacks *b);//test
 void check_ra(t_stacks	*stack_a, int i);//test

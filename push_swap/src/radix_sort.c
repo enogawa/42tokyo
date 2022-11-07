@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 03:21:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/10/20 16:07:07 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/07 11:37:48 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	binary_num_radix_sort(t_stacks *stack_a, size_t bit_len, size_t num_len)
 	size_t		shift_num;
 	size_t		pb_count;
 	t_stacks	*stack_b;
-	int			i;
+	size_t		i;
 
 	stack_b = list_new(-1);
 	shift_num = 0;
@@ -54,7 +54,8 @@ void	binary_num_radix_sort(t_stacks *stack_a, size_t bit_len, size_t num_len)
 		{
 			if (((stack_a->data) >> shift_num) & 1)
 			{
-				ra(&stack_a, 0);
+				if (stack_a->next->data != -1)
+					ra(&stack_a, 0);
 			}
 			else
 			{
@@ -65,7 +66,7 @@ void	binary_num_radix_sort(t_stacks *stack_a, size_t bit_len, size_t num_len)
 		n_pa(&stack_a, &stack_b, pb_count);
 		shift_num++;
 	}
-	printf("ans: ");//test
+	printf("finally: ");//test
 	command_check(stack_a);//test
 }
 

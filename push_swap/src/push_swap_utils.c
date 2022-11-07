@@ -56,11 +56,16 @@ char	*ft_strdup(const char	*str)
 
 int		already_sorted(t_stacks	*stack_a)
 {
-	while (stack_a->next->data != -1)
+	t_stacks *tmp;
+
+	tmp = stack_a;
+	if (tmp->next->data == -1)
+		return (1);
+	while (tmp->next->data != -1)
 	{
-		if (stack_a->data > stack_a->next->data)
+		if (tmp->data > tmp->next->data)
 			return (0);
-		stack_a = stack_a->next;
+		tmp = tmp->next;
 	}
 	return (1);
 }

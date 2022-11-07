@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:50:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/28 19:43:54 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/10/28 10:17:48 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 void	sa(t_stacks **stacks, int i)
 {
 	t_stacks	*tmp;
+	t_stacks	*node;
 
 	tmp = *stacks;
+	node = (*stacks)->prev;
 	*stacks = (*stacks)->next;
-	(*stacks)->prev = NULL;
-	tmp->next = (*stacks)->next;
+	node->next = *stacks;
+	(*stacks)->prev = node;
+	tmp->next = node->prev;
+	node->prev->prev = tmp;
 	(*stacks)->next = tmp;
 	if (!i)
 	{

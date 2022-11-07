@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/30 15:15:31 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/07 11:38:23 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stacks	*put_num_into_stacks(int		*zipped_num, int i)
         new = list_new(zipped_num[j]);
         lst_add_back(stack_a, new);
         stack_a = list_mv_foot(stack_a);
-        printf("stack_a[%d]; %ld\n", j, stack_a->data);//test
+        printf("stack_a[%d]; %ld\n", j, stack_a->data);//testtestetstetstetstetsetetstetts
         j++;
     }
     return (stack_a);
@@ -77,12 +77,18 @@ int		main(int argc, char **argv)
     zipped_num = malloc(sizeof(int) * (argc - 1));
 	zipped_num = compression(num, zipped_num, num_len);
 	stack_a = put_num_into_stacks(zipped_num, num_len);
-    //printf("test; %ld", stack_a->data);
     stack_a = list_mv_head(stack_a);
     if (already_sorted(stack_a))
        return (0);
-    // printf("aaa");
-	radix_sort(stack_a, num_len);
+    if (num_len <= 3)
+        u4_sort(stack_a, num_len);
+    // else if (num_len <= 6)
+    // {
+    //     u7_sort(stack_a, num_len);
+    // }
+    else
+	    radix_sort(stack_a, num_len);
+    printf("finally: ");//test
+	command_check(stack_a);//test
 	return (0);
 }
-//printf("zipped_num[%d]; %d\n", j, zipped_num[j]);

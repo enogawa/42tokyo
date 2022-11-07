@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:49:55 by enogawa           #+#    #+#             */
-/*   Updated: 2022/10/21 14:11:41 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/07 11:37:01 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	node_sort_ope_pb(t_stacks **stack_a, t_stacks **stack_b)
 {
 	t_stacks	*head_a;
 	t_stacks	*node_a;
-	t_stacks	*head_b;
+	// t_stacks	*head_b;
 	t_stacks	*node_b;
 	
 	if ((*stack_a)->data == -1)
@@ -36,7 +36,7 @@ void	node_sort_ope_pb(t_stacks **stack_a, t_stacks **stack_b)
 
 void	node_sort_ope_pa(t_stacks **stack_a, t_stacks **stack_b)
 {
-	t_stacks	*head_a;
+	// t_stacks	*head_a;
 	t_stacks	*node_a;
 	t_stacks	*head_b;
 	t_stacks	*node_b;

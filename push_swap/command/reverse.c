@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:49:57 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/29 11:47:42 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/10/28 10:18:03 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,20 @@ void	rra(t_stacks **stack_a, int i)
 {
 	t_stacks	*head;
 	t_stacks	*foot;
+	t_stacks	*node;
 
+	if ((*stack_a)->data == -1)
+		*stack_a = (*stack_a)->next;
 	head = list_mv_head(*stack_a);
 	foot = list_mv_foot(*stack_a);
-	foot->prev->next = NULL;
-	(*stack_a)->prev = NULL;
+	node = head->prev;
 	*stack_a = foot;
-	foot->next = head;
-	head->prev = foot;
+	foot->prev->next = node;
+	(*stack_a)->prev = node;
+	(*stack_a)->next = head;
+	head->prev = *stack_a;
+	node->prev = foot->prev;
+	node->next = *stack_a;
 	if (!i)
 	{
 		write (1, "rra\n", 5);
@@ -34,11 +40,13 @@ void	rrb(t_stacks **stack_b, int i)
 {
 	t_stacks	*head;
 	t_stacks	*foot;
-
+	t_stacks	*node;
+	
 	head = list_mv_head(*stack_b);
 	foot = list_mv_foot(*stack_b);
-	foot->prev->next = NULL;
-	(*stack_b)->prev = NULL;
+	node = head->prev;
+	foot->prev->next = node;
+	(*stack_b)->prev = node;
 	*stack_b = foot;
 	foot->next = head;
 	head->prev = foot;

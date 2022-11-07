@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:50:01 by enogawa           #+#    #+#             */
-/*   Updated: 2022/10/21 14:13:24 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/10/28 09:07:02 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ra(t_stacks **stack_a, int i)
 	t_stacks *head;
 	t_stacks *foot;
 	t_stacks *node;
+	
 	if ((*stack_a)->data == -1)
 		*stack_a = (*stack_a)->next;
 	head =  list_mv_head(*stack_a);
