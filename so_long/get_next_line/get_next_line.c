@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:53:51 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/01 19:33:17 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 18:55:24 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*free_str(char **buff, char **save)
 {
 	if (buff != NULL)
 	{
-		free(*buff);	
+		free(*buff);
 		*buff = NULL;
 	}
 	if (save != NULL)
@@ -41,17 +41,15 @@ char	*read_line(int fd, char *save)
 	{
 		read_size = read(fd, buf, BUFFER_SIZE);
 		if (read_size == -1 || (read_size == 0 && save[0] == '\0'))
-		{
-			return (free_str(&buf, &save)); 
-		}
+			return (free_str(&buf, &save));
 		buf[read_size] = '\0';
 		tmp = ft_strjoin_gnl(save, buf);
 		if (tmp == NULL)
-			return (free_str(&buf, &save)); 
-		free_str(NULL, &save); 
+			return (free_str(&buf, &save));
+		free_str(NULL, &save);
 		save = tmp;
 	}
-	free_str(&buf, NULL); 
+	free_str(&buf, NULL);
 	return (save);
 }
 
@@ -92,12 +90,10 @@ char	*rest_str(char *save)
 	while (save[i] && save[i] != '\n')
 		i++;
 	if (!save[i])
-	{
-		return (free_str(NULL, &save)); 
-	}
+		return (free_str(NULL, &save));
 	i++;
 	rest = ft_strdup_gnl(&save[i]);
-	free_str(NULL, &save); 
+	free_str(NULL, &save);
 	if (rest == NULL)
 		return (NULL);
 	save = rest;
@@ -122,7 +118,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	output_line = get_line(save);
 	if (output_line == NULL)
-		return (free_str(NULL, &save)); 
+		return (free_str(NULL, &save));
 	save = rest_str(save);
 	return (output_line);
 }

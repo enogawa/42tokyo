@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:22 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/24 17:40:05 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:34:46 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_calloc(size_t n, size_t size)
 {
 	void	*ans;
@@ -29,14 +30,15 @@ void	*ft_calloc(size_t n, size_t size)
 	return (ans);
 }
 /*
-int main()
+int	main(void)
 {
 	size_t	n1;
-	size_t size1;
+	size_t	size1;
+	size_t	n2;
+	size_t	size2;
+
 	n1 = 5;
 	size1 = 5;
-	size_t	n2;
-	size_t size2;
 	n2 = 5;
 	size2 = 5;
 	printf("%zu\n", ft_strlen(ft_calloc(n1, size1)));

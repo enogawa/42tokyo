@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:37:31 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/20 13:03:31 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:25 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;

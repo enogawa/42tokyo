@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:54:03 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/01 19:38:43 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 18:53:43 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <fcntl.h>
 # define BUFFER_SIZE 1024
 
-char	*ft_strchr_gnl(const char *str, int	c);
+char	*ft_strchr_gnl(const char *str, int c);
 char	*ft_strjoin_gnl(char const *s1, char const *s2);
 char	*join_array(char const *s1, char const *s2, char *ans);
-char	*ft_strdup_gnl(const char	*str);
+char	*ft_strdup_gnl(const char *str);
 char	*read_line(int fd, char *save);
 char	*get_line(char *save);
 char	*rest_str(char *save);

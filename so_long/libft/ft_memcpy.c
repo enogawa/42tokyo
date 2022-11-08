@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:28:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/07 13:59:24 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:12 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_memcpy(void *str1, const void *str2, size_t s)
 {
 	size_t			i;
@@ -31,15 +32,18 @@ void	*ft_memcpy(void *str1, const void *str2, size_t s)
 	return (cast_str1);
 }
 /*
-int	main()
+int	main(void)
 {
-	char	str[] = "12345678";
+	char	str[];
+	char	str1[];
+	char	str2[];
+
+	str[] = "12345678";
 	//char	src[] = "abcdefgh";
-	char	str1[] = "12345678";
-	char	str2[] = "12345678";
+	str1[] = "12345678";
+	str2[] = "12345678";
 	printf("%s\n", ft_memcpy(str+2, str, 3));
 	printf("%s\n", memcpy(str1+2, str1, 3));
-
 	printf("%s", memmove(str2+2, str2, 3));
 }
 */

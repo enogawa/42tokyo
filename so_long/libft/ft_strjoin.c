@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:34:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 14:23:15 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:37 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static char	*join_array(char const *s1, char const *s2, char *ans)
 {
 	size_t	i;
@@ -35,9 +36,9 @@ static char	*join_array(char const *s1, char const *s2, char *ans)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char		*ans;
-	size_t		s1_len;
-	size_t		s2_len;
+	char	*ans;
+	size_t	s1_len;
+	size_t	s2_len;
 
 	if (!s1 && !s2)
 		return (NULL);
@@ -53,11 +54,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (join_array(s1, s2, ans));
 }
 /*
-int	main()
+int	main(void)
 {
-	char	str1[] = "42";
-	char	str2[] = "tokyo";
+	char	str1[];
+	char	str2[];
 
+	str1[] = "42";
+	str2[] = "tokyo";
 	printf("%s\n", ft_strjoin(str1, str2));
 }
 */

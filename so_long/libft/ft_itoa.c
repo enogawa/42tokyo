@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:35:31 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 00:30:03 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:03 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static size_t	count_digit(long int i)
 {
 	size_t	count;
@@ -59,9 +60,10 @@ char	*ft_itoa(int n)
 	return (ans);
 }
 /*
-int	main()
+int	main(void)
 {
-	int i;
+	int	i;
+
 	i = -2147483648;
 	printf("%s", ft_itoa(i));
 }

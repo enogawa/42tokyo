@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:36:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 00:31:17 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:34 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t	i;

@@ -6,13 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:54:08 by enogawa           #+#    #+#             */
-/*   Updated: 2022/08/29 17:32:23 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 18:54:21 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr_gnl(const char *str, int	c)
+char	*ft_strchr_gnl(const char *str, int c)
 {
 	size_t	i;
 	char	cast_c;

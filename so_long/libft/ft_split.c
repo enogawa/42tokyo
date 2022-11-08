@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogawa <enogawa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:35:12 by enogawa           #+#    #+#             */
-/*   Updated: 2022/07/17 15:44:53 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:29 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static size_t	split_count(char const *s, char c)
 {
 	size_t	i;
@@ -110,4 +111,3 @@ char	**ft_split(char const *s, char c)
 // 		i++;
 // 	}
 // }
-

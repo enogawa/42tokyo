@@ -6,12 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:28:25 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/07 13:58:37 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:16 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void	*ft_memmove(void	*str1, const void	*str2, size_t	s)
+
+void	*ft_memmove(void *str1, const void *str2, size_t s)
 {
 	unsigned char	*cast_str1;
 	unsigned char	*cast_str2;
@@ -33,12 +34,17 @@ void	*ft_memmove(void	*str1, const void	*str2, size_t	s)
 	return (cast_str1);
 }
 /*
-int	main()
+int	main(void)
 {
-	char	src1[] = "42tokyo";
-	char	src2[] = "eiki";
-	char	src3[] = "42tokyo";
-	char	src4[] = "eiki";
+	char	src1[];
+	char	src2[];
+	char	src3[];
+	char	src4[];
+
+	src1[] = "42tokyo";
+	src2[] = "eiki";
+	src3[] = "42tokyo";
+	src4[] = "eiki";
 	ft_memmove(src1, src2, 2);
 	memmove(src3, src4, 2);
 	printf("%s\n", src1);

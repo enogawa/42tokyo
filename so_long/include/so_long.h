@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 18:59:38 by enogawa           #+#    #+#             */
+/*   Updated: 2022/11/08 19:01:40 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdio.h>
-#include <libc.h>
-#include <unistd.h>
+# include <stdio.h>
+# include <libc.h>
+# include <unistd.h>
 
 # include "./ft_printf.h"
 # include "./get_next_line.h"
@@ -11,8 +23,7 @@
 # include "../minilibx-linux/mlx.h"
 
 # define WINSIZE 50
-#define ESC_KEY 65307
-
+# define ESC_KEY 65307
 
 typedef struct s_mlx_data {
 	void	*mlx;
@@ -32,7 +43,6 @@ typedef struct s_mlx_data {
 
 }t_mlx_data;
 
-
 int		args_error_handler(int argc, char **argv);
 int		map_error_handler(char **map);
 size_t	ft_strlen_so_long(const char *str);
@@ -41,8 +51,8 @@ int		init_mlx_map(t_mlx_data *mlx_data);
 void	mlx_image_init(t_mlx_data	*mlx_data);
 int		put_inside_map(t_mlx_data	*mlx_data);
 int		destroy_mlx(t_mlx_data *mlx_data);
-int		move_maps(int	key_num, t_mlx_data *mlx_data);
-int 	put_inside_map(t_mlx_data	*mlx_data);
+int		move_maps(int key_num, t_mlx_data *mlx_data);
+int		put_inside_map(t_mlx_data	*mlx_data);
 void	mlx_image_init(t_mlx_data	*mlx_data);
 
 #endif

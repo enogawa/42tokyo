@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:28:59 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 00:30:38 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:39 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static size_t	ft_strnlen(const char *str, size_t s)
 {
 	size_t	len;
@@ -44,13 +45,17 @@ size_t	ft_strlcat(char *dst, const char *src, size_t s)
 	return (dst_len + src_len);
 }
 /*
-int    main()
+int	main(void)
 {
-    char    dst1[20] = "abcde";
-    char    dst2[20] = "abcde";
-	char	src1[20] = "12345";
-	char	src2[20] = "12345";
+	char	dst1[20];
+	char	dst2[20];
+	char	src1[20];
+	char	src2[20];
 
+    dst1[20] = "abcde";
+    dst2[20] = "abcde";
+	src1[20] = "12345";
+	src2[20] = "12345";
     printf("ft_strlcat:%zu\n", ft_strlcat(NULL, src1, 0));
     printf("strlcat:%zu\n", strlcat(NULL, src1, 0));
 	printf("%s,", dst1);

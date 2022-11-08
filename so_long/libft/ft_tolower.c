@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:29:46 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/23 22:10:02 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:59 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_tolower(int c)
 {
 	if ('A' <= c && c <= 'Z')
@@ -21,9 +22,11 @@ int	ft_tolower(int c)
 }
 
 /*
-int	main()
+int	main(void)
 {
-	int	s = 'E';
+	int	s;
+
+	s = 'E';
 	s = ft_tolower(s);
 	printf("%c", s);
 }

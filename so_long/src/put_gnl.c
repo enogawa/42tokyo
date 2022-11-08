@@ -12,10 +12,10 @@
 
 #include "so_long.h"
 
-char **put_gnl(int fd, int line)
+char	**put_gnl(int fd, int line)
 {
-	char **map;
-	char *tmp;
+	char	**map;
+	char	*tmp;
 
 	tmp = get_next_line(fd);
 	if (!tmp)

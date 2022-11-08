@@ -6,15 +6,16 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:32:50 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/08 23:25:27 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:52 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char	*ft_strnstr(const char	*str, const char *src, size_t s)
+
+char	*ft_strnstr(const char *str, const char *src, size_t s)
 {
-	size_t		i;
-	size_t		k;
+	size_t	i;
+	size_t	k;
 
 	i = 0;
 	if (src[0] == '\0')
@@ -33,11 +34,12 @@ char	*ft_strnstr(const char	*str, const char *src, size_t s)
 	return (NULL);
 }
 /*
-int main()
+int	main(void)
 {
-	char *str;
-	char *src;
-	size_t s;
+	char	*str;
+	char	*src;
+	size_t	s;
+
 	str = "aaabcdaabc";
 	src = "aabc";
 	s = 50;

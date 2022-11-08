@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:54 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 11:39:07 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:57 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ans;
@@ -36,12 +37,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ans);
 }
 /*
-int	main()
+int	main(void)
 {
-	char	src[] = "42tokyo";
-	int		c = 2;
-	size_t	s = 5;
+	char	src[];
+	int		c;
+	size_t	s;
 
+	src[] = "42tokyo";
+	c = 2;
+	s = 5;
 	printf("%s\n", ft_substr(src, c, s));
 }
 */

@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 00:31:43 by enogawa           #+#    #+#             */
-/*   Updated: 2022/08/30 10:42:15 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:37:51 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 int	ft_put_hex(unsigned int num, char format)
 {
 	int	len;

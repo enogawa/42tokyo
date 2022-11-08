@@ -6,22 +6,23 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:07 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/24 17:40:43 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:34:39 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_atoi(const char *str)
 {
-	long int		ans;
-	size_t			i;
-	int				m;
+	long int	ans;
+	size_t		i;
+	int			m;
 
 	ans = 0;
 	i = 0;
 	m = 1;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		   	 || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f'
+		|| str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -37,7 +38,7 @@ int	ft_atoi(const char *str)
 	return (ans * m);
 }
 /*
-int	main()
+int	main(void)
 {
 	printf("%d,", ft_atoi("-123123"));
 	printf("%d\n", ft_atoi("99999999999999999999999999"));

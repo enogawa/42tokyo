@@ -6,12 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:32:18 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/27 12:28:33 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:05 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void	*ft_memchr(const void	*str, int	c, size_t	s)
+
+void	*ft_memchr(const void *str, int c, size_t s)
 {
 	size_t			i;
 	unsigned char	*str_cast;
@@ -29,14 +30,21 @@ void	*ft_memchr(const void	*str, int	c, size_t	s)
 	return (NULL);
 }
 /*
-int	main()
+int	main(void)
 {
-	char	src[] = "42 tokyo";
-	int		c = 't';
-	int		s = 0;
-	char	src2[] = "42 tokyo";
-	int		c2 = 't';
-	int		s2 = 0;
+	char	src[];
+	int		c;
+	int		s;
+	char	src2[];
+	int		c2;
+	int		s2;
+
+	src[] = "42 tokyo";
+	c = 't';
+	s = 0;
+	src2[] = "42 tokyo";
+	c2 = 't';
+	s2 = 0;
 	printf("%s\n", (char *)ft_memchr(src, c, s));
 	printf("%s", (char *)memchr(src2, c2, s2));
 }

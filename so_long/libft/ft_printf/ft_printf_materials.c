@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 01:01:09 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/01 19:25:27 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:37:48 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);

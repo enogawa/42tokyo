@@ -6,13 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:27:20 by enogawa           #+#    #+#             */
-/*   Updated: 2022/09/13 16:54:48 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 18:44:42 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int	argc, char	**argv)
+int	main(int argc, char **argv)
 {
 	int			fd;
 	int			line;
@@ -20,7 +20,6 @@ int	main(int	argc, char	**argv)
 
 	mlx_data = malloc(sizeof(t_mlx_data));
 	mlx_data->steps = 0;
-	//ft_bzero(&mlx_data, sizeof(t_mlx_data));
 	if (!mlx_data)
 		return (1);
 	if (args_error_handler(argc, argv))
@@ -28,7 +27,7 @@ int	main(int	argc, char	**argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
-		write (2, "No maps\n", 9);
+		write(2, "No maps\n", 9);
 		return (1);
 	}
 	line = 0;
