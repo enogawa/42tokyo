@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:59:38 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 19:01:40 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/09 12:33:35 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int		destroy_mlx(t_mlx_data *mlx_data);
 int		move_maps(int key_num, t_mlx_data *mlx_data);
 int		put_inside_map(t_mlx_data	*mlx_data);
 void	mlx_image_init(t_mlx_data	*mlx_data);
+int		too_much_pe(int *pec_count);
+int		is_there_pec(int *pec_count);
 
 #endif

@@ -6,12 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:26:41 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/23 14:33:16 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:13:29 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int	ft_isascii(int	c)
+
+int	ft_isascii(int c)
 {
 	if (0 <= c && c <= 127)
 		return (1);

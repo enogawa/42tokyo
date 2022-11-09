@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:32:33 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/23 14:57:37 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:14:42 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_memcmp(const void *str1, const void *str2, size_t s)
 {
 	size_t			i;

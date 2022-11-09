@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:27:35 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/25 15:59:51 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:15:28 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_memset(void	*str, int c, size_t s)
 {
 	size_t			i;

@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   map_error_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 11:27:52 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 19:10:24 by enogawa          ###   ########.fr       */
+/*   Created: 2022/11/09 12:25:42 by enogawa           #+#    #+#             */
+/*   Updated: 2022/11/09 13:59:49 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_bzero(void	*str, size_t s)
+int	too_much_pe(int *pec_count)
 {
-	ft_memset(str, 0, s);
+	if (pec_count[0] > 1 || pec_count[1] > 1)
+	{
+		write(2, "too much P or E\n", 17);
+		free(pec_count);
+		return (1);
+	}
+	return (0);
 }
-/*
-int main()
+
+int	is_there_pec(int *pec_count)
 {
-	char	str1[] = "42tokyo";
-	size_t	s1 = 2;
-	char	ans;
-	ans = ft_bzero(str1, s1);
-	char	str2[] = "42tokyo";
-	size_t	s2 = 2;
-	printf("%s\n", ans));
-	printf("%s", bzero(str2, s2));
+	if (pec_count[0] == 0 || pec_count[1] == 0 || pec_count[2] == 0)
+	{
+		write(2, "not found P, E, or C\n", 22);
+		free(pec_count);
+		return (1);
+	}
+	return (0);
 }
-*/
+

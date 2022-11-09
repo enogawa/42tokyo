@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:28:25 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/07 13:58:37 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:15:26 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_memmove(void	*str1, const void	*str2, size_t	s)
 {
 	unsigned char	*cast_str1;

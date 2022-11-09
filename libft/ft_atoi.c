@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:07 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/24 17:40:43 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:04:13 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_atoi(const char *str)
 {
 	long int		ans;

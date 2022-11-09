@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:36:25 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/20 13:03:20 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:15:30 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);

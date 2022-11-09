@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:28:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/07 13:59:24 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:14:51 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_memcpy(void *str1, const void *str2, size_t s)
 {
 	size_t			i;

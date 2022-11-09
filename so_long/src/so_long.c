@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:27:20 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 18:44:42 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:58:34 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ int	main(int argc, char **argv)
 	mlx_data->mlx_width = ft_strlen_so_long(mlx_data->map[0]);
 	while (mlx_data->map[mlx_data->mlx_hight])
 		mlx_data->mlx_hight++;
-	if (map_error_handler(mlx_data->map))
-		return (1);
-	if (init_mlx_map(mlx_data))
+	if (map_error_handler(mlx_data->map) || init_mlx_map(mlx_data))
 		return (1);
 	return (0);
 }

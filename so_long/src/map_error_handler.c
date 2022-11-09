@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_error_handler.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/09 11:59:02 by enogawa           #+#    #+#             */
+/*   Updated: 2022/11/09 12:36:30 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	wall_error(char **map)
@@ -44,20 +56,12 @@ int	p_e_c_error(char **map)
 			pec_count[1] += 1;
 		if (ft_strchr(map[i], 'C'))
 			pec_count[2] += 1;
-		if (pec_count[0] > 1 || pec_count[1] > 1)
-		{
-			write(2, "too much P or E\n", 17);
-			// free(pec_count);
+		if (too_much_pe(pec_count))
 			return (1);
-		}
 		i++;
 	}
-	if (pec_count[0] == 0 || pec_count[1] == 0 || pec_count[2] == 0)
-	{
-		write(2, "not found P, E, or C\n", 22);
-		// free(pec_count);
+	if (is_there_pec(pec_count))
 		return (1);
-	}
 	free(pec_count);
 	return (0);
 }

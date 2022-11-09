@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:38 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/25 16:33:14 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:17:23 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strdup(const char	*str)
 {
 	char	*ans;

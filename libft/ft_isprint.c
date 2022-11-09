@@ -6,12 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:27:00 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/20 13:01:26 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:14:05 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int	ft_isprint(int	c)
+
+int	ft_isprint(int c)
 {
 	if (32 <= c && c <= 126)
 		return (1);

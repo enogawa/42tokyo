@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:22 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/24 17:40:05 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:10:29 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_calloc(size_t n, size_t size)
 {
 	void	*ans;

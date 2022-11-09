@@ -6,12 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:30:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/24 10:16:01 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:17:33 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char	*ft_strchr(const char *str, int	c)
+
+char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
 	char	cast_c;

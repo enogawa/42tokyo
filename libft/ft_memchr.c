@@ -6,12 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:32:18 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/27 12:28:33 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:14:31 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void	*ft_memchr(const void	*str, int	c, size_t	s)
+
+void	*ft_memchr(const void	*str, int c, size_t	s)
 {
 	size_t			i;
 	unsigned char	*str_cast;

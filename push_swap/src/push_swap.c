@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/07 16:03:45 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:09:02 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		*compression(int	*num, int	*zipped_num, int	i)
             if (j != k && num[j] == num[k])
             {
                 write(2, "Error\n", 6);
-                return (0);
+                exit (0);
             }
             if(num[j] > num[k])
 				count++;
@@ -75,14 +75,14 @@ int		main(int argc, char **argv)
         num_len++;
     }
     zipped_num = malloc(sizeof(int) * (argc - 1));
-	zipped_num = compression(num, zipped_num, num_len);
-	stack_a = put_num_into_stacks(zipped_num, num_len);
+    zipped_num = compression(num, zipped_num, num_len);
+    stack_a = put_num_into_stacks(zipped_num, num_len);
     stack_a = list_mv_head(stack_a);
     if (already_sorted(stack_a))
        return (0);
     if (num_len <= 3)
         u4_sort(stack_a, num_len);
-    else if (num_len <= 6)
+    else if (num_len <= 5)
     {
         u7_sort(stack_a, num_len);
     }

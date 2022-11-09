@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/09 11:57:43 by enogawa           #+#    #+#             */
+/*   Updated: 2022/11/09 11:57:44 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	check_collections(t_mlx_data *mlx_data)
@@ -54,8 +66,6 @@ void	move_p(t_mlx_data *mlx_data, int y, int x)
 
 int	move_maps(int key_num, t_mlx_data *mlx_data)
 {
-	//(void)mlx_data;
-	//ft_printf("test'%d'", key_num);
 	if (key_num == ESC_KEY)
 		destroy_mlx(mlx_data);
 	if (key_num == 'w')
