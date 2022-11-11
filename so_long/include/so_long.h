@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:59:38 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/09 12:33:35 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/11 19:35:24 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_mlx_data {
 }t_mlx_data;
 
 int		args_error_handler(int argc, char **argv);
-int		map_error_handler(char **map);
+int		map_error_handler(char **map, t_mlx_data	*mlx_data);
 size_t	ft_strlen_so_long(const char *str);
 char	**put_gnl(int fd, int line);
 int		init_mlx_map(t_mlx_data *mlx_data);
@@ -56,5 +56,7 @@ int		put_inside_map(t_mlx_data	*mlx_data);
 void	mlx_image_init(t_mlx_data	*mlx_data);
 int		too_much_pe(int *pec_count);
 int		is_there_pec(int *pec_count);
-
+char	**dfs_map_error(char **dfs_map);
+char	**dup_map(char **map, t_mlx_data	*mlx_data);
+int		check_e_c(char **dfs_map, int c);
 #endif

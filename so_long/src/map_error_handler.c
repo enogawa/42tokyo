@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:59:02 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/09 12:36:30 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/11 19:33:35 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,10 @@ int	characters_error(char **map)
 	return (0);
 }
 
-int	map_error_handler(char **map)
+int	map_error_handler(char **map, t_mlx_data	*mlx_data)
 {
+	char	**dfs_map;
+
 	if (wall_error(map))
 		return (1);
 	if (p_e_c_error(map))
@@ -118,6 +120,11 @@ int	map_error_handler(char **map)
 	if (shape_error(map))
 		return (1);
 	if (characters_error(map))
+		return (1);
+	dfs_map = malloc(sizeof(char **));
+	dfs_map = dup_map(map, mlx_data);
+	dfs_map = dfs_map_error(dfs_map);
+	if (check_e_c(dfs_map, 'E') || check_e_c(dfs_map, 'C'))
 		return (1);
 	return (0);
 }
