@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/09 16:09:02 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/13 17:43:01 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,17 @@ int		main(int argc, char **argv)
     int         num_len;
 	t_stacks	*stack_a;
 
+    num = check_args(argc, argv);
     num_len = 0;
-    num = malloc(sizeof(int) * (argc - 1));
-    while(argv[num_len + 1])
-    {
-        num[num_len] = push_swap_atoi(argv[num_len + 1]);
+    while (num[num_len])
         num_len++;
-    }
-    zipped_num = malloc(sizeof(int) * (argc - 1));
+    // num = malloc(sizeof(int) * (argc - 1));
+    // while(argv[num_len + 1])
+    // {
+    //     num[num_len] = push_swap_atoi(argv[num_len + 1]);
+    //     num_len++;
+    // }
+    zipped_num = malloc(sizeof(int) * (num_len));
     zipped_num = compression(num, zipped_num, num_len);
     stack_a = put_num_into_stacks(zipped_num, num_len);
     stack_a = list_mv_head(stack_a);
@@ -83,9 +86,7 @@ int		main(int argc, char **argv)
     if (num_len <= 3)
         u4_sort(stack_a, num_len);
     else if (num_len <= 5)
-    {
         u7_sort(stack_a, num_len);
-    }
     else
 	    radix_sort(stack_a, num_len);
     stack_a = list_mv_head(stack_a);
