@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:38:40 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 19:38:59 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/11 20:34:08 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	args_error_handler(int argc, char **argv)
 		return (1);
 	}
 	len = ft_strlen(argv[1]);
-	if (ft_strncmp(argv[1] + (len - 4), ".ber", 4) != 0)
+	if (len < 4 || ft_strncmp(argv[1] + (len - 4), ".ber", 4) != 0)
 	{
 		write(2, "invalid map name\n", 18);
 		return (1);

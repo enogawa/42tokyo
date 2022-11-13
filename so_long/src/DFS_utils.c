@@ -6,11 +6,25 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:57:42 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/11 19:39:47 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/12 17:03:03 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static char	**free_error_strdup(char **map, int y)
+{
+	int	i;
+
+	i = 0;
+	while (i < y)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	return (NULL);
+}
 
 char	**dup_map(char **map, t_mlx_data	*mlx_data)
 {
@@ -19,16 +33,20 @@ char	**dup_map(char **map, t_mlx_data	*mlx_data)
 
 	y = 0;
 	dup = (char **)malloc(sizeof(char *) * mlx_data->mlx_hight + 1);
+	if (!dup)
+		return (NULL);
 	while (map[y])
 	{
 		dup[y] = ft_strdup(map[y]);
+		if (!dup[y])
+			return (free_error_strdup(map, y));
 		y++;
 	}
 	dup[y] = NULL;
 	return (dup);
 }
 
-char	**dfs_map_error_utils(char **dfs_map, int y, int x)
+static void	dfs_map_error_utils(char **dfs_map, int y, int x)
 {
 	if (dfs_map[y - 1][x] != '1' && dfs_map[y - 1][x] != 'M')
 	{
@@ -50,10 +68,10 @@ char	**dfs_map_error_utils(char **dfs_map, int y, int x)
 		dfs_map[y][x + 1] = 'M';
 		dfs_map_error_utils(dfs_map, y, x + 1);
 	}
-	return (dfs_map);
+	return ;
 }
 
-char	**dfs_map_error(char **dfs_map)
+void	dfs_map_error(char **dfs_map)
 {
 	int	y;
 	int	x;
@@ -70,7 +88,7 @@ char	**dfs_map_error(char **dfs_map)
 		}
 		y++;
 	}
-	return (NULL);
+	return ;
 }
 
 int	check_e_c(char **dfs_map, int c)
@@ -82,6 +100,13 @@ int	check_e_c(char **dfs_map, int c)
 	{
 		if (ft_strchr(dfs_map[y], c))
 		{
+			y = 0;
+			while (dfs_map[y])
+			{
+				free(dfs_map[y]);
+				y++;
+			}
+			free(dfs_map);
 			write(2, "You can't get goal with this map", 33);
 			return (1);
 		}

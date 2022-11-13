@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:59:38 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/11 19:35:24 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/12 17:15:48 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,13 @@ int		map_error_handler(char **map, t_mlx_data	*mlx_data);
 size_t	ft_strlen_so_long(const char *str);
 char	**put_gnl(int fd, int line);
 int		init_mlx_map(t_mlx_data *mlx_data);
-void	mlx_image_init(t_mlx_data	*mlx_data);
-int		put_inside_map(t_mlx_data	*mlx_data);
 int		destroy_mlx(t_mlx_data *mlx_data);
 int		move_maps(int key_num, t_mlx_data *mlx_data);
-int		put_inside_map(t_mlx_data	*mlx_data);
-void	mlx_image_init(t_mlx_data	*mlx_data);
 int		too_much_pe(int *pec_count);
 int		is_there_pec(int *pec_count);
-char	**dfs_map_error(char **dfs_map);
+void	dfs_map_error(char **dfs_map);
 char	**dup_map(char **map, t_mlx_data	*mlx_data);
 int		check_e_c(char **dfs_map, int c);
+int		ft_strchr_so_long(const char *str, int c);
+
 #endif

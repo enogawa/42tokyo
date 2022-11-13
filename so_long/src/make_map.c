@@ -6,13 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:43:26 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 21:19:38 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/11 22:15:13 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	mlx_image_init(t_mlx_data *mlx_data)
+static void	mlx_image_init(t_mlx_data *mlx_data)
 {
 	int	size;
 
@@ -29,7 +29,7 @@ void	mlx_image_init(t_mlx_data *mlx_data)
 			"./images/exit1.xpm", &size, &size);
 }
 
-void	put_inside_map_utils(t_mlx_data *mlx_data, int x, int y)
+static void	put_inside_map_utils(t_mlx_data *mlx_data, int x, int y)
 {
 	if (mlx_data->map[y][x] == '0')
 		mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
@@ -52,7 +52,7 @@ void	put_inside_map_utils(t_mlx_data *mlx_data, int x, int y)
 			mlx_data->collection_image, WINSIZE * x, WINSIZE * y);
 }
 
-int	put_inside_map(t_mlx_data *mlx_data)
+static int	put_inside_map(t_mlx_data *mlx_data)
 {
 	int	y;
 	int	x;

@@ -1,51 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr_so_long.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 11:30:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/12 17:13:40 by enogawa          ###   ########.fr       */
+/*   Created: 2022/11/12 17:12:54 by enogawa           #+#    #+#             */
+/*   Updated: 2022/11/12 17:19:13 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_strchr_so_long(const char *str, int c)
 {
 	size_t	i;
+	int		count;
 	char	cast_c;
 
 	i = 0;
+	count = 0;
 	cast_c = (char)c;
 	if (cast_c == '\0')
 	{
 		while (str[i] != '\0')
 			i++;
-		return ((char *)&str[i]);
+		return (0);
 	}
 	while (str[i] != '\0')
 	{
 		if (str[i] == cast_c)
-			return ((char *)&str[i]);
+			count++;
 		i++;
 	}
-	return (NULL);
+	return (count);
 }
-/*
-int	main(void)
-{
-	char	src1[];
-	int		c1;
-	char	src2[];
-	int		c2;
-
-	src1[] = "42tokyo";
-	c1 = 't';
-	src2[] = "42tokyo";
-	c2 = 't';
-	printf("%s\n", ft_strchr(src1, c1));
-	printf("%s", strchr(src2, c2));
-}
-*/

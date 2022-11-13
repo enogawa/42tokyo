@@ -1,10 +1,3 @@
-# NAME   = so_long
-#CC      =    cc
-# CFLAGS = -Wall -Wextra -Werror
-# SRCS   = args_error_handler.c ft_strlen_so_long.c map_error_handler.c\
-# OBJS  = $(SRCS:.c=.o)
-
-
 NAME         =    so_long
 CC           =    cc
 CFLAGS       =    -Wall -Werror -Wextra -I ./include
@@ -24,7 +17,7 @@ GNL_PATH     =    ./get_next_line/
 GNL_OBJS     =    $(GNL_SRC:.c=.o)
 
 SRCS         =    ./src/so_long.c ./src/args_error_handler.c ./src/ft_strlen_so_long.c ./src/map_error_handler.c ./src/make_map.c \
-				./src/put_gnl.c ./src/destroy_mlx.c ./src/move.c ./src/map_error_utils.c ./src/DFS_utils.c
+				./src/put_gnl.c ./src/destroy_mlx.c ./src/move.c ./src/map_error_utils.c ./src/DFS_utils.c ./src/ft_strchr_so_long.c
 
 OBJS         =    ${SRCS:.c=.o}
 
@@ -39,15 +32,15 @@ $(LIBFT):
 		$(MAKE) -C $(LIBFTDIR)
 
 clean:
-		$(MAKE) clean -C $(LIBFTDIR)
+		$(MAKE) fclean -C $(LIBFTDIR)
 		$(RM) ${GNL_OBJS}
 		$(RM) ${OBJS}
+		$(RM) ${MLX}
 		$(MAKE) clean -C $(MLX_PATH)
 
 fclean: clean
-		$(MAKE) fclean -C $(LIBFTDIR)
 		$(RM) ${NAME}
-		$(RM) ${MLX}
+
 re : fclean all
 
 .PHONY:

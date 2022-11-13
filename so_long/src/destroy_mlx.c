@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:39:29 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 19:43:52 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/11 22:08:47 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	destroy_mlx(t_mlx_data *mlx_data)
 		x++;
 	}
 	free(mlx_data->map);
+	free(mlx_data);
 	exit(0);
 }

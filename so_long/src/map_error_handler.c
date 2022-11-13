@@ -6,13 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:59:02 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/11 19:33:35 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/12 17:16:01 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	wall_error(char **map)
+static int	wall_error(char **map)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ int	wall_error(char **map)
 	return (0);
 }
 
-int	p_e_c_error(char **map)
+static int	p_e_c_error(char **map)
 {
 	int	*pec_count;
 	int	i;
@@ -51,9 +51,9 @@ int	p_e_c_error(char **map)
 	while (map[i])
 	{
 		if (ft_strchr(map[i], 'P'))
-			pec_count[0] += 1;
+			pec_count[0] += ft_strchr_so_long(map[i], 'P');
 		if (ft_strchr(map[i], 'E'))
-			pec_count[1] += 1;
+			pec_count[1] += ft_strchr_so_long(map[i], 'E');
 		if (ft_strchr(map[i], 'C'))
 			pec_count[2] += 1;
 		if (too_much_pe(pec_count))
@@ -66,7 +66,7 @@ int	p_e_c_error(char **map)
 	return (0);
 }
 
-int	shape_error(char **map)
+static int	shape_error(char **map)
 {
 	size_t	len;
 	int		i;
@@ -85,7 +85,7 @@ int	shape_error(char **map)
 	return (0);
 }
 
-int	characters_error(char **map)
+static int	characters_error(char **map)
 {
 	int	i;
 	int	j;
@@ -121,9 +121,10 @@ int	map_error_handler(char **map, t_mlx_data	*mlx_data)
 		return (1);
 	if (characters_error(map))
 		return (1);
-	dfs_map = malloc(sizeof(char **));
 	dfs_map = dup_map(map, mlx_data);
-	dfs_map = dfs_map_error(dfs_map);
+	if (!dfs_map)
+		return (1);
+	dfs_map_error(dfs_map);
 	if (check_e_c(dfs_map, 'E') || check_e_c(dfs_map, 'C'))
 		return (1);
 	return (0);

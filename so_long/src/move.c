@@ -6,13 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:57:43 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/09 11:57:44 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/11 22:18:18 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_collections(t_mlx_data *mlx_data)
+static int	check_collections(t_mlx_data *mlx_data)
 {
 	size_t	x;
 	size_t	y;
@@ -34,7 +34,7 @@ int	check_collections(t_mlx_data *mlx_data)
 	return (0);
 }
 
-void	make_it_finished(t_mlx_data *mlx_data)
+static void	make_it_finished(t_mlx_data *mlx_data)
 {
 	mlx_data->steps++;
 	ft_printf("walked %d stepps\n", mlx_data->steps);
@@ -42,7 +42,7 @@ void	make_it_finished(t_mlx_data *mlx_data)
 	destroy_mlx(mlx_data);
 }
 
-void	move_p(t_mlx_data *mlx_data, int y, int x)
+static void	move_p(t_mlx_data *mlx_data, int y, int x)
 {
 	if (mlx_data->map[mlx_data->player_y + y][mlx_data->player_x + x] != '1')
 	{
