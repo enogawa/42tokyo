@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:07 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 19:04:13 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:59:58 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	m = 1;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		   	 || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

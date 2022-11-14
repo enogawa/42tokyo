@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:28:41 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/20 13:04:21 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:56:08 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 size_t	ft_strlcpy(char *str, const char *src, size_t s)
 {
 	if ((ft_strlen(src) + 1) < s)

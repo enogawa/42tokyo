@@ -33,6 +33,19 @@ int	push_swap_atoi(const char *str)
 		ans = ans * 10 + str[i] - 48;
 		i++;
 	}
+	if (ans > INT_MAX)
+	{
+		if(m == -1 && ans > INT_MAX + 1L)
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
+		else if (m == 1)
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
+	}
 	return (ans * m);
 }
 

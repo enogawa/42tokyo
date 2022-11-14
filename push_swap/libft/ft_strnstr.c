@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:32:50 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/08 23:25:27 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:55:53 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strnstr(const char	*str, const char *src, size_t s)
 {
 	size_t		i;

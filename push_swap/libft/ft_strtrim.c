@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:34:51 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/06 11:31:55 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:59:01 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static size_t	start_count(char const *s1, char const *set)
 {
 	size_t	i;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   under7_sort.c                                      :+:      :+:    :+:   */
+/*   under6_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 07:40:29 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/07 17:31:47 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:29:05 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ void	u4_sort(t_stacks *stack_a, int num_len)
 	t_stacks	*nxt_a;
 
 	nxt_a = stack_a->next;
+	if (already_sorted(stack_a))
+		return ;
 	if (num_len == 2)
 		ra(&stack_a, 0);
 	else
 	{
-		//printf("test; %ld\n", nxt_a->next->data);
-		if (stack_a->data < nxt_a->data && stack_a->data < nxt_a->next->data)//021
+		if (stack_a->data < nxt_a->data && stack_a->data < nxt_a->next->data) //021
 		{
 	 		sa(&stack_a, 0);
 	 		ra(&stack_a, 0);
@@ -39,34 +40,20 @@ void	u4_sort(t_stacks *stack_a, int num_len)
 			rra(&stack_a, 0);
 		}
 	}
-	// {
-	// 	if (stack_a->data == 0 && stack_a->next->data == 2)
-	// 	{
-	// 		sa(&stack_a, 0);
-	// 		ra(&stack_a, 0);
-	// 	}
-	// 	else if (stack_a->data == 1 && stack_a->next->data == 0)
-	// 		sa(&stack_a, 0);
-	// 	else if (stack_a->data == 1 && stack_a->next->data == 2)
-	// 		rra(&stack_a, 0);
-	// 	else if (stack_a->data == 2 && stack_a->next->data == 0)
-	// 		ra(&stack_a, 0);
-	// 	else if (stack_a->data == 2 && stack_a->next->data == 1)
-	// 	{
-	// 		sa(&stack_a, 0);
-	// 		rra(&stack_a, 0);
-	// 	}
-	// }
 }
 
 void	u7_sort(t_stacks *stack_a, int num_len)
 {
 	t_stacks	*stack_b;
 	int			i;
+	int			j;
 	
 	stack_b = list_new(-1);
 	i = 0;
-	while (2 > i)
+	j = 2;
+	if (num_len == 4)
+		j = 1;
+	while (j > i)
 	{
 		if(stack_a->data == i)
 		{
@@ -79,5 +66,5 @@ void	u7_sort(t_stacks *stack_a, int num_len)
 	u4_sort(stack_a, num_len);
 	while (i--)
 		pa(&stack_a, &stack_b);
-
+	stack_free(&stack_b, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:35:12 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/08 19:16:29 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/13 22:05:14 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static size_t	split_count(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		if (s[i] != c && (s[i + 1] == c || s[i + 1]))
 			count++;
 		i++;
 	}
@@ -35,7 +35,7 @@ static size_t	array_range(char const *s, char c)
 
 	i = 0;
 	range = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] != c)
 		{
@@ -66,12 +66,12 @@ static char	**cpy_array(char const *s, char **ans, char c)
 
 	i = 0;
 	x = 0;
-	while (*s != '\0')
+	while (*s)
 	{
 		while (s[i] == c)
 			i++;
 		s = s + i;
-		if (*s != '\0')
+		if (*s)
 		{
 			ans[x] = ft_substr(s, 0, array_range(s, c));
 			if (!ans[x])
@@ -105,7 +105,7 @@ char	**ft_split(char const *s, char c)
 // 	int i = 0;
 
 // 	ans = ft_split(str, c);
-// 	while (ans[i] != '\0')
+// 	while (ans[i])
 // 	{
 // 		printf("%s\n", ans[i]);
 // 		i++;

@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:27:19 by enogawa           #+#    #+#             */
-/*   Updated: 2022/05/27 11:20:46 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:00:32 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 size_t	ft_strlen(const char *str)
 {
 	size_t	len;

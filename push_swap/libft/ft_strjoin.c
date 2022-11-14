@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:34:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 14:23:15 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:56:37 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static char	*join_array(char const *s1, char const *s2, char *ans)
 {
 	size_t	i;

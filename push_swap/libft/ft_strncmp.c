@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:30:44 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/07 14:17:21 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:58:48 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_strncmp(const char *str, const char *src, size_t c)
 {
 	size_t			i;

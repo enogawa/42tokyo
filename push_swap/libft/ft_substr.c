@@ -6,11 +6,12 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:33:54 by enogawa           #+#    #+#             */
-/*   Updated: 2022/06/05 11:39:07 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:58:44 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ans;
