@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 07:40:29 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/14 18:29:05 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/22 12:29:55 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	u7_sort(t_stacks *stack_a, int num_len)
 		j = 1;
 	while (j > i)
 	{
-		if(stack_a->data == i)
+		if (stack_a->data == 0 || stack_a->data == 1)
 		{
-			pb(&stack_a, &stack_b);	
+			pb(&stack_a, &stack_b);
 			i++;
 		}
 		else
@@ -66,5 +66,7 @@ void	u7_sort(t_stacks *stack_a, int num_len)
 	u4_sort(stack_a, num_len);
 	while (i--)
 		pa(&stack_a, &stack_b);
+	if (stack_a->data > stack_a->next->data)
+		sa(&stack_a, 0);
 	stack_free(&stack_b, 1);
 }
