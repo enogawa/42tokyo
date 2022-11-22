@@ -6,40 +6,46 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 07:40:29 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/22 12:29:55 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/22 21:45:54 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static void	three_sort(t_stacks *stack)
+{
+	t_stacks	*nxt;
+
+	nxt = stack->next;
+	if (stack->data < nxt->data
+		&& stack->data < nxt->next->data)//021
+	{
+		sa(&stack, 0);
+		ra(&stack, 0);
+	}
+	else if (stack->data < nxt->data && stack->data > nxt->next->data)//120
+		rra(&stack, 0);
+	else if (stack->data > nxt->data && stack->data < nxt->next->data)//102
+		sa(&stack, 0);
+	else if (stack->data > nxt->data && stack->data > nxt->next->data//201
+		&& nxt->data < nxt->next->data)
+		ra(&stack, 0);
+	else if (stack->data > nxt->data && stack->data > nxt->next->data//210
+		&& nxt->data > nxt->next->data)
+	{
+		sa(&stack, 0);
+		rra(&stack, 0);
+	}
+}
+
 void	u4_sort(t_stacks *stack_a, int num_len)
 {
-	t_stacks	*nxt_a;
-
-	nxt_a = stack_a->next;
 	if (already_sorted(stack_a))
 		return ;
 	if (num_len == 2)
 		ra(&stack_a, 0);
 	else
-	{
-		if (stack_a->data < nxt_a->data && stack_a->data < nxt_a->next->data) //021
-		{
-	 		sa(&stack_a, 0);
-	 		ra(&stack_a, 0);
-	 	}
-		else if (stack_a->data < nxt_a->data && stack_a->data > nxt_a->next->data)//120
-			rra(&stack_a, 0);
-		else if (stack_a->data > nxt_a->data && stack_a->data < nxt_a->next->data)//102
-			sa(&stack_a, 0);
-		else if (stack_a->data > nxt_a->data && stack_a->data > nxt_a->next->data && nxt_a->data < nxt_a->next->data)//201
-			ra(&stack_a, 0);
-		else if (stack_a->data > nxt_a->data && stack_a->data > nxt_a->next->data && nxt_a->data > nxt_a->next->data)//210
-		{
-			sa(&stack_a, 0);
-			rra(&stack_a, 0);
-		}
-	}
+		three_sort(stack_a);
 }
 
 void	u7_sort(t_stacks *stack_a, int num_len)
@@ -47,7 +53,7 @@ void	u7_sort(t_stacks *stack_a, int num_len)
 	t_stacks	*stack_b;
 	int			i;
 	int			j;
-	
+
 	stack_b = list_new(-1);
 	i = 0;
 	j = 2;

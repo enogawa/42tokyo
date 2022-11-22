@@ -6,13 +6,14 @@
 #    By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 19:47:27 by enogawa           #+#    #+#              #
-#    Updated: 2022/11/13 21:03:40 by enogawa          ###   ########.fr        #
+#    Updated: 2022/11/22 21:46:55 by enogawa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 cc		=	cc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra 
+# CFLAGS	=	-Wall -Werror -Wextra -g -fsanitize=address
 
 LIBFTDIR     =    libft
 LIBFT        =    $(LIBFTDIR)/libft.a

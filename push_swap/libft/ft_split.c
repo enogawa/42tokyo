@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:35:12 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/13 22:05:14 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/22 21:20:40 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	ans = malloc((split_count(s, c) + 1) * sizeof(char *));
+	ans = malloc((split_count(s, c) + 2) * sizeof(char *));
 	if (!ans)
 		return (NULL);
 	return (cpy_array(s, ans, c));

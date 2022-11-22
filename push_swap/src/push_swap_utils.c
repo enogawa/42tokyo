@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 10:59:42 by enogawa           #+#    #+#             */
+/*   Updated: 2022/11/15 11:08:09 by enogawa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 size_t	ft_strlen_push_swap(const char *str)
@@ -10,6 +22,23 @@ size_t	ft_strlen_push_swap(const char *str)
 	return (len);
 }
 
+static void	check_out_of_int(long int ans, int m)
+{
+	if (ans > INT_MAX)
+	{
+		if (m == -1 && ans > INT_MAX + 1L)
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
+		else if (m == 1)
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
+	}
+}
+
 int	push_swap_atoi(const char *str)
 {
 	long int		ans;
@@ -20,7 +49,7 @@ int	push_swap_atoi(const char *str)
 	i = 0;
 	m = 1;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		   	 || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -33,19 +62,7 @@ int	push_swap_atoi(const char *str)
 		ans = ans * 10 + str[i] - 48;
 		i++;
 	}
-	if (ans > INT_MAX)
-	{
-		if(m == -1 && ans > INT_MAX + 1L)
-		{
-			write(2, "Error\n", 6);
-			exit (0);
-		}
-		else if (m == 1)
-		{
-			write(2, "Error\n", 6);
-			exit (0);
-		}
-	}
+	check_out_of_int(ans, m);
 	return (ans * m);
 }
 
@@ -67,9 +84,9 @@ char	*ft_strdup_push_swap(const char	*str)
 	return (ans);
 }
 
-int		already_sorted(t_stacks	*stack_a)
+int	already_sorted(t_stacks	*stack_a)
 {
-	t_stacks *tmp;
+	t_stacks	*tmp;
 
 	tmp = stack_a;
 	if (tmp->next->data == -1)

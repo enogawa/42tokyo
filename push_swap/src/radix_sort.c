@@ -6,13 +6,13 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 03:21:10 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/14 18:30:21 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/15 15:29:16 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	n_pa(t_stacks **stack_a,t_stacks **stack_b, size_t pb_count)
+void	n_pa(t_stacks **stack_a, t_stacks **stack_b, size_t pb_count)
 {
 	size_t	i;
 
@@ -24,10 +24,10 @@ void	n_pa(t_stacks **stack_a,t_stacks **stack_b, size_t pb_count)
 	}
 }
 
-int		cmp_times(long	biggest_num)
+int	cmp_times(long biggest_num)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	while (biggest_num > 0)
 	{
@@ -52,11 +52,8 @@ void	binary_num_radix_sort(t_stacks *stack_a, size_t bit_len, size_t num_len)
 		pb_count = 0;
 		while (i++ < num_len)
 		{
-			if (((stack_a->data) >> shift_num) & 1)
-			{
-				if (stack_a->next->data != -1)
-					ra(&stack_a, 0);
-			}
+			if (((stack_a->data) >> shift_num) & 1 && stack_a->next->data != -1)
+				ra(&stack_a, 0);
 			else
 			{
 				pb(&stack_a, &stack_b);
