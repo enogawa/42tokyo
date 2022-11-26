@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/26 15:47:00 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/26 16:17:54 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	*compression(int *num, int *zipped_num, int i)
 			{
 				write(2, "Error\n", 6);
 				free(zipped_num);
-				// free (num);
+				free (--num);
 				exit (0);
 			}
 			if (num[j] > num[k])
