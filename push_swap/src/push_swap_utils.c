@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 10:59:42 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/15 11:08:09 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/26 15:34:14 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,28 @@ size_t	ft_strlen_push_swap(const char *str)
 	return (len);
 }
 
-static void	check_out_of_int(long int ans, int m)
+static void	check_out_of_int(long int ans, int m, int *num, char **nums)
 {
 	if (ans > INT_MAX)
 	{
 		if (m == -1 && ans > INT_MAX + 1L)
 		{
 			write(2, "Error\n", 6);
-			exit (0);
+			free(num);
+			free_nums(nums, 0);
+			exit(1);
 		}
 		else if (m == 1)
 		{
 			write(2, "Error\n", 6);
-			exit (0);
+			free(num);
+			free_nums(nums, 0);
+			exit(1);
 		}
 	}
 }
 
-int	push_swap_atoi(const char *str)
+int	push_swap_atoi(const char *str, int *num, char **nums)
 {
 	long int		ans;
 	size_t			i;
@@ -62,7 +66,7 @@ int	push_swap_atoi(const char *str)
 		ans = ans * 10 + str[i] - 48;
 		i++;
 	}
-	check_out_of_int(ans, m);
+	check_out_of_int(ans, m, num, nums);
 	return (ans * m);
 }
 

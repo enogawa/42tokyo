@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/22 17:53:33 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/26 15:47:00 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	*compression(int *num, int *zipped_num, int i)
 			{
 				write(2, "Error\n", 6);
 				free(zipped_num);
-				free (num);
+				// free (num);
 				exit (0);
 			}
 			if (num[j] > num[k])
@@ -92,6 +92,8 @@ int	main(int argc, char	**argv)
 	num = check_args(argc, argv);
 	num_len = num[0];
 	zipped_num = malloc(sizeof(int) * (num_len));
+	if (!zipped_num)
+		return(1);
 	zipped_num = compression(&num[1], zipped_num, num_len);
 	free(num);
 	stack_a = put_num_into_stacks(zipped_num, num_len);
@@ -100,10 +102,14 @@ int	main(int argc, char	**argv)
 	if (already_sorted(stack_a))
 	{
 		stack_free(&stack_a, num_len + 1);
-		return (0);
+		return (1);
 	}
 	sort_ope(stack_a, num_len);
 	stack_a = list_mv_head(stack_a);
 	stack_free(&stack_a, num_len + 1);
 	return (0);
+}
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q push_swap");
 }

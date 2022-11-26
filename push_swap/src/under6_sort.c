@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 07:40:29 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/22 21:45:54 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/22 21:44:05 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static void	three_sort(t_stacks *stack)
 
 	nxt = stack->next;
 	if (stack->data < nxt->data
-		&& stack->data < nxt->next->data)//021
+		&& stack->data < nxt->next->data)
 	{
 		sa(&stack, 0);
 		ra(&stack, 0);
 	}
-	else if (stack->data < nxt->data && stack->data > nxt->next->data)//120
+	else if (stack->data < nxt->data && stack->data > nxt->next->data)
 		rra(&stack, 0);
-	else if (stack->data > nxt->data && stack->data < nxt->next->data)//102
+	else if (stack->data > nxt->data && stack->data < nxt->next->data)
 		sa(&stack, 0);
-	else if (stack->data > nxt->data && stack->data > nxt->next->data//201
+	else if (stack->data > nxt->data && stack->data > nxt->next->data
 		&& nxt->data < nxt->next->data)
 		ra(&stack, 0);
-	else if (stack->data > nxt->data && stack->data > nxt->next->data//210
+	else if (stack->data > nxt->data && stack->data > nxt->next->data
 		&& nxt->data > nxt->next->data)
 	{
 		sa(&stack, 0);

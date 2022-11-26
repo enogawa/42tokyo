@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 19:08:12 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/14 17:55:11 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/26 15:34:39 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stacks{
 	struct s_stacks	*prev;
 }t_stacks;
 
-int			push_swap_atoi(const char *str);
+int			push_swap_atoi(const char *str, int *num, char **nums);
 char		*ft_strdup_push_swap(const char	*str);
 size_t		ft_strlen_push_swap(const char *str);
 void		list_init(int	*ziped_num);
@@ -52,5 +52,6 @@ void		check_push(t_stacks *a, t_stacks *b);//test
 void		check_ra(t_stacks	*stack_a, int i);//test
 int			*check_args(int argc, char **argv);
 void		stack_free(t_stacks **stack, int len);
+void		free_nums(char **nums, int flag);
 
 #endif
