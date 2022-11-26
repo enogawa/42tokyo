@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:57:43 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/11 22:18:18 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/26 13:41:37 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	move_p(t_mlx_data *mlx_data, int y, int x)
 
 int	move_maps(int key_num, t_mlx_data *mlx_data)
 {
+	// printf("%d\n", key_num);
 	if (key_num == ESC_KEY)
 		destroy_mlx(mlx_data);
 	if (key_num == 'w')
