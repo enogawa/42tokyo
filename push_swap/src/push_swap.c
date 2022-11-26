@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:20:04 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/26 16:17:54 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/11/26 16:41:50 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,10 @@ int	main(int argc, char	**argv)
 	sort_ope(stack_a, num_len);
 	stack_a = list_mv_head(stack_a);
 	stack_free(&stack_a, num_len + 1);
+	// system("leaks -q push_swap");
 	return (0);
 }
-__attribute__((destructor)) static void destructor()
-{
-	system("leaks -q push_swap");
-}
+// __attribute__((destructor)) static void destructor()
+// {
+// 	system("leaks -q push_swap");
+// }
