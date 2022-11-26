@@ -60,3 +60,16 @@ int	main(void)
 	}
 	return (0);
 }
+
+void command_check(t_stacks	*stack)
+{
+	t_stacks	*tmp = stack;
+	
+	if (tmp->data == -1)
+	{
+		tmp = tmp->next;
+	}
+	for (t_stacks	*temp = stack; temp->data != -1; temp = temp->next)
+		printf("%ld ", temp->data);
+	printf("\n\n");
+}
