@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:57:42 by enogawa           #+#    #+#             */
-/*   Updated: 2022/11/12 17:03:03 by enogawa          ###   ########.fr       */
+/*   Updated: 2022/12/01 00:32:52 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,55 @@ static void	dfs_map_error_utils(char **dfs_map, int y, int x)
 {
 	if (dfs_map[y - 1][x] != '1' && dfs_map[y - 1][x] != 'M')
 	{
-		dfs_map[y - 1][x] = 'M';
-		dfs_map_error_utils(dfs_map, y - 1, x);
+		if (dfs_map[y - 1][x] == 'E')
+		{
+			dfs_map[y - 1][x] = '1';
+			dfs_map_error_utils(dfs_map, y, x);
+		}
+		else
+		{
+			dfs_map[y - 1][x] = 'M';
+			dfs_map_error_utils(dfs_map, y - 1, x);
+		}
 	}
 	if (dfs_map[y + 1][x] != '1' && dfs_map[y + 1][x] != 'M')
 	{
-		dfs_map[y + 1][x] = 'M';
-		dfs_map_error_utils(dfs_map, y + 1, x);
+		if (dfs_map[y + 1][x] == 'E')
+		{
+			dfs_map[y + 1][x] = '1';
+			dfs_map_error_utils(dfs_map, y, x);
+		}
+		else
+		{
+			dfs_map[y + 1][x] = 'M';
+			dfs_map_error_utils(dfs_map, y + 1, x);
+		}
 	}
 	if (dfs_map[y][x - 1] != '1' && dfs_map[y][x - 1] != 'M')
 	{
-		dfs_map[y][x - 1] = 'M';
-		dfs_map_error_utils(dfs_map, y, x - 1);
+		if (dfs_map[y][x - 1] == 'E')
+		{
+			dfs_map[y][x - 1] = '1';
+			dfs_map_error_utils(dfs_map, y, x);
+		}
+		else
+		{
+			dfs_map[y][x - 1] = 'M';
+			dfs_map_error_utils(dfs_map, y, x - 1);
+		}
 	}
 	if (dfs_map[y][x + 1] != '1' && dfs_map[y][x + 1] != 'M')
 	{
-		dfs_map[y][x + 1] = 'M';
-		dfs_map_error_utils(dfs_map, y, x + 1);
+		if (dfs_map[y][x + 1] == 'E')
+		{
+			dfs_map[y][x + 1] = '1';
+			dfs_map_error_utils(dfs_map, y, x);
+		}
+		else
+		{
+			dfs_map[y][x + 1] = 'E';
+			dfs_map_error_utils(dfs_map, y, x + 1);
+		}
 	}
 	return ;
 }
