@@ -1,32 +1,162 @@
-#include "./../philosopher.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosopher.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enogaWa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
+/*   Updated: 2023/01/22 10:59:48 by enogaWa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	argcheck(argc, argv)
+#include "philosopher.h"
+
+static int	make_thread(t_data *data)
 {
+	int	i;
 
-}
-
-void	error_return(char *str)
-{
-	write(1, &str, ft_strlen(str));
-	write(1, '\n', 1);
-}
-
-int	main(int argc, char **argv)
-{
-	// 構造体
-	t_date	*date;
-	// memset 0でイニシャライズ
-	memset(memset, 0, sizeof(t_date));
-	// argcheck 5 6 数じゃないとout
-	if (argcheck(argc, argv))
+	i = 0;
+	data->start_time = get_time();
+	while (i < data->philo_num)
 	{
-		error_return("invlid arguments");
+		// printf("%d\n", data->time_sleep);
+		pthread_create(&data->philo[i].thread, NULL,
+			&start_philo, &data->philo[i]);
+		i++;
+	}
+	// pthread_create(&data->monitor, NULL, &monitoring, &data);
+	// pthread_join(data->monitor, NULL);
+	i = 0;
+	while (i < data->philo_num)
+	{
+		pthread_join(data->philo[i].thread, NULL);
+		i++;
+	}
+	return (0);
+}
+
+static int	init_philo(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->philo_num)
+	{
+		data->philo[i].id = i + 1;
+		if (i == data->philo_num)
+			data->philo[i].right_fork = &data->philo[0].left_fork;
+		else
+			data->philo[i].right_fork = &data->philo[i + 1].left_fork;
+		data->philo[i].last_eat_time = 0;
+		data->philo[i].data = data;
+		i++;
+	}
+	return (0);
+}
+
+static int	argcheck(int argc, char **argv, t_data *data)
+{
+	int	i;
+	// int		num;
+	i = 0;
+	if (argc != 5 && argc != 6)
+		return (1);
+	if (!ft_atoi_philo(argv[1]))
+		return (1);
+	else
+		data->philo_num = ft_atoi_philo(argv[1]);
+	if (!ft_atoi_philo(argv[2]))
+		return (1);
+	else
+		data->time_die = ft_atoi_philo(argv[2]);
+	if (!ft_atoi_philo(argv[3]))
+		return (1);
+	else
+		data->time_eat = ft_atoi_philo(argv[3]);
+	if (!ft_atoi_philo(argv[4]))
+		return (1);
+	else
+		data->time_sleep = ft_atoi_philo(argv[4]);
+	if (argc == 6)
+	{
+		if (!ft_atoi_philo(argv[5]))
+			return (1);
+		else
+		{
+			while (i < data->philo_num)
+			{
+				data->philo[i].number_eat = ft_atoi_philo(argv[5]);
+				i++;
+			}
+		}
+		// data->number_eat = ft_atoi_philo(argv[5]);
+	}
+
+	// num = malloc(sizeof(int) * (argc - 1));
+	// if (!num)
+	// 	exit(1);
+	// while (i < argc - 1)
+	// {
+	// 	num[i] = ft_atoi_philo(argv[i + 1]);
+	// 	if (!num[i])
+	// 		return (1);
+	// 	i++;
+	// }
+	// data->philo_num = num[0];
+	// data->time_die = num[1];
+	// data->time_eat = num[2];
+	// data->time_sleep = num[3];
+	// if (num[4])
+	// 	data->number_eat = num[4];
+	// free(num);
+	// data->check_alive = 1;
+	return (0);
+}
+
+static int	make_mutex(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->philo_num)
+	{
+		if (data->philo[i].number_eat)
+		{
+			// if (pthread_mutex_init(data->philo[i].eat_num_lock, NULL))
+			if (pthread_mutex_init(&data->philo->eat_num_lock, NULL))
+				return (1);
+		}
+		if (pthread_mutex_init(&data->philo[i].left_fork, NULL))
+			return (1);
+		i++;
+	}
+	if (pthread_mutex_init(&data->print, NULL))
+		return (1);
+	return (0);
+}
+
+int main(int argc, char **argv)
+{
+	t_data	data;
+
+	// data = malloc(sizeof(t_data));
+	// memset(data, 0, sizeof(t_data));
+	if (argcheck(argc, argv, &data))
+	{
+		printf("invalid args");
 		return (1);
 	}
-	//  ミューテックス
-	// 実行　main
-		// スレッドの作成
-			// 哲学者には行動を
-			// 監視スレには　監視の行動を
-	// 終了処置
+	if (init_philo(&data))
+		return (1);
+	if (make_mutex(&data))
+		return (1);
+	if (make_thread(&data))
+		return (1);
+	return (0);
 }
+
+// __attribute__((destructor)) static void destructor()
+// {
+//     system("leaks -q philo");
+// }
