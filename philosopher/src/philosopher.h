@@ -6,7 +6,7 @@
 /*   By: enogaWa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:07:25 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/21 21:34:15 by enogaWa          ###   ########.fr       */
+/*   Updated: 2023/01/22 16:18:09 by enogaWa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_data
 	bool					check_alive;
 	pthread_t				monitor;
 	pthread_mutex_t			print;
+	pthread_mutex_t			check;
 	struct s_philosopher	philo[200];
 }	t_data;
 
@@ -54,6 +55,7 @@ time_t	get_time(void);
 void	put_action(char *action_name, t_philosopher *philo);
 bool	eating(t_philosopher *philo);
 void	sleeping(t_philosopher *philo);
+bool 	ttt(t_data *data,int flag);
 void	thinking(t_philosopher *philo);
 
 #endif

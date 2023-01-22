@@ -6,7 +6,7 @@
 /*   By: enogaWa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 10:59:48 by enogaWa          ###   ########.fr       */
+/*   Updated: 2023/01/22 16:38:37 by enogaWa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,33 @@ static int	make_thread(t_data *data)
 	data->start_time = get_time();
 	while (i < data->philo_num)
 	{
-		// printf("%d\n", data->time_sleep);
 		pthread_create(&data->philo[i].thread, NULL,
 			&start_philo, &data->philo[i]);
 		i++;
 	}
-	// pthread_create(&data->monitor, NULL, &monitoring, &data);
-	// pthread_join(data->monitor, NULL);
+	// printf("11111111111____________%p\n", data);
+	pthread_create(&data->monitor, NULL, &monitoring, data);
+	pthread_join(data->monitor, NULL);
 	i = 0;
 	while (i < data->philo_num)
 	{
 		pthread_join(data->philo[i].thread, NULL);
 		i++;
 	}
+	i = 0;
+	while (i < data->philo_num)
+	{
+		if (data->philo[i].number_eat)
+		{
+			if (pthread_mutex_destroy(&data->philo->eat_num_lock))
+				return (1);
+		}
+		if (pthread_mutex_destroy(&data->philo[i].left_fork))
+			return (1);
+		i++;
+	}
+	if (pthread_mutex_destroy(&data->print))
+		return (1);
 	return (0);
 }
 
@@ -52,6 +66,7 @@ static int	init_philo(t_data *data)
 		data->philo[i].data = data;
 		i++;
 	}
+	data->check_alive = true;
 	return (0);
 }
 
