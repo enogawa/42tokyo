@@ -6,11 +6,16 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 20:15:55 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/22 21:04:30 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
+
+
+
+
+
 
 static int	make_thread(t_data *data)
 {
