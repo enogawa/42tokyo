@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_life.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogaWa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:43:47 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 16:38:26 by enogaWa          ###   ########.fr       */
+/*   Updated: 2023/01/22 20:05:03 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ bool	eating(t_philosopher *philo)
 {
 	time_t	start;
 
-	pthread_mutex_lock(&philo->data->check);
-	if (!ttt(philo->data,0))
+	if (!ttt(philo->data))
 		return (false);
-	pthread_mutex_unlock(&philo->data->check);
 	pthread_mutex_lock(&philo->left_fork);
 	put_action("has taken a fork", philo);
 	// if (philo->data->philo_num == 1)
@@ -31,11 +29,12 @@ bool	eating(t_philosopher *philo)
 	put_action("has taken a fork", philo);
 	put_action("is eating", philo);
 	start = get_time();
+	// pthread_mutex_lock(philo->time);//
 	while (get_time() - start < philo->data->time_eat)
 		usleep(100);
+	// pthread_mutex_unlock(philo->time);//
 	pthread_mutex_lock(&philo->eat_num_lock);
 	philo->number_eat--;
-	// printf("%d, num_eat = %d\n\n", philo->id, philo->number_eat);
 	pthread_mutex_unlock(&philo->eat_num_lock);
 	pthread_mutex_unlock(&philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
@@ -51,10 +50,7 @@ void	sleeping(t_philosopher *philo)
 	start = get_time();
 	put_action("is sleeping", philo);
 	while (get_time() - start < philo->data->time_sleep)
-	{
-		// printf("%d", get_time() - start < philo->data->time_sleep);
 		usleep(100);
-	}
 }
 
 void	thinking(t_philosopher *philo)
@@ -64,15 +60,12 @@ void	thinking(t_philosopher *philo)
 	put_action("is thinking", philo);
 }
 
-void	*start_philo(void	*arg)
+void	*start_philo(void *arg)
 {
 	t_philosopher	*philo;
-	int i = 0;
-	// printf("test");
-	// (void)arg;
+
+	// int i = 0; //
 	philo = (t_philosopher *)arg;
-	// printf("3333333333333___________%p\n", philo->data);
-	// return NULL;
 	if (philo->data->philo_num == 1)
 		return (NULL);
 	if (philo->id % 2 == 0 || philo->id == philo->data->philo_num)
@@ -86,9 +79,9 @@ void	*start_philo(void	*arg)
 			break ;
 		sleeping(philo);
 		thinking(philo);
-		if (i++ == 30)
-			break ;
+		// if (i++ == 30) //
+		// 	break ;     //
 	}
-	// printf("fin\n");
+	printf("fin\n");
 	return (NULL);
 }

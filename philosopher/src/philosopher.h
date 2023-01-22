@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosopher.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogaWa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:07:25 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 16:18:09 by enogaWa          ###   ########.fr       */
+/*   Updated: 2023/01/22 19:44:49 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_philosopher
 {
 	int					id;
 	int					number_eat;
+	pthread_mutex_t		*time;
 	pthread_mutex_t		eat_num_lock;
 	pthread_mutex_t		*right_fork;
 	pthread_mutex_t		left_fork;
@@ -55,7 +56,7 @@ time_t	get_time(void);
 void	put_action(char *action_name, t_philosopher *philo);
 bool	eating(t_philosopher *philo);
 void	sleeping(t_philosopher *philo);
-bool 	ttt(t_data *data,int flag);
+bool 	ttt(t_data *data);
 void	thinking(t_philosopher *philo);
 
 #endif

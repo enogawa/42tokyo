@@ -3,66 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enogaWa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:33:53 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 16:42:41 by enogaWa          ###   ########.fr       */
+/*   Updated: 2023/01/22 20:07:28 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
-bool ttt(t_data *data, int flag)
+bool	ttt(t_data *data)
 {
-	bool tmp;
+	bool	tmp;
+
+	// tmp = false;
 	pthread_mutex_lock(&data->check);
-	if (flag == 0)
-	{
-		// printf("22222222222222___________%p\n", &data->check_alive);
-		tmp = data->check_alive;
-		pthread_mutex_unlock(&data->check);
-		return tmp;
-	}
-	else // printf("11111111111111_____________%p\n", &data->check_alive);
-		data->check_alive = false;
+	tmp = data->check_alive;
 	pthread_mutex_unlock(&data->check);
-	return true;
+	printf("%d\n", tmp);
+	return tmp;
 }
-time_t get_time(void)
+
+time_t	get_time(void)
 {
-	time_t time;
-	struct timeval tv;
+	time_t			time;
+	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
 	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	return (time);
 }
 
-void put_action(char *action_name, t_philosopher *philo)
+void	put_action(char *action_name, t_philosopher *philo)
 {
-	// (void)action_name;
-	if (!ttt(philo->data, 0))
-		return;
+	// time_t	time;
+	// time = get_time() - philo->data->start_time;
+	// printf("1------------%p\n", &philo->data);
+	if (!ttt(philo->data))
+		return ;
 	pthread_mutex_lock(&philo->data->print);
-	printf("%ld %d %s\n", get_time() - philo->data->start_time, philo->id, action_name);
+	printf("%ld %d %s\n", get_time() - philo->data->start_time, philo->id,
+			action_name);
+	// printf("1------------%p\n", &philo->data->start_time);
 	pthread_mutex_unlock(&philo->data->print);
 }
 
-static int ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	if ('0' <= c && c <= '9')
 		return (1);
 	return (0);
 }
 
-int ft_atoi_philo(char *str)
+int	ft_atoi_philo(char *str)
 {
-	long int ans;
-	size_t i;
+	long int	ans;
+	size_t		i;
 
 	ans = 0;
 	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f'
+		|| str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

@@ -1,0 +1,66 @@
+==================
+WARNING: ThreadSanitizer: data race (pid=19086)
+  Write of size 1 at 0x7ffee9aca228 by thread T4:
+    #0 ttt <null>:2673712 (philo:x86_64+0x1000027f2)
+    #1 monitoring <null>:2673712 (philo:x86_64+0x1000015b7)
+
+  Previous read of size 1 at 0x7ffee9aca228 by thread T2:
+    #0 ttt <null>:2673712 (philo:x86_64+0x1000027ad)
+    #1 eating <null>:2673712 (philo:x86_64+0x10000178e)
+    #2 start_philo <null>:2673712 (philo:x86_64+0x100001b49)
+
+  Location is stack of main thread.
+
+  Thread T4 (tid=76715, running) created by main thread at:
+    #0 pthread_create <null>:2673792 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2a99d)
+    #1 make_thread <null>:2673792 (philo:x86_64+0x10000254c)
+    #2 main <null>:2673792 (philo:x86_64+0x100001cbe)
+
+  Thread T2 (tid=76685, running) created by main thread at:
+    #0 pthread_create <null>:2673792 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2a99d)
+    #1 make_thread <null>:2673792 (philo:x86_64+0x100002511)
+    #2 main <null>:2673792 (philo:x86_64+0x100001cbe)
+
+SUMMARY: ThreadSanitizer: data race (philo:x86_64+0x1000027f2) in ttt
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=19086)
+  Write of size 4 at 0x7ffee9aca2bc by thread T1 (mutexes: write M13, write M14):
+    #0 eating <null>:1063856 (philo:x86_64+0x1000018ae)
+    #1 start_philo <null>:1063856 (philo:x86_64+0x100001b49)
+
+  Previous read of size 4 at 0x7ffee9aca2bc by thread T4:
+    #0 check_eat_all <null>:1063856 (philo:x86_64+0x1000016be)
+    #1 monitoring <null>:1063856 (philo:x86_64+0x1000015a0)
+
+  As if synchronized via sleep:
+    #0 usleep <null>:1063984 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2953e)
+    #1 eating <null>:1063984 (philo:x86_64+0x100001873)
+    #2 start_philo <null>:1063984 (philo:x86_64+0x100001b49)
+
+  Location is stack of main thread.
+
+  Mutex M13 (0x7ffee9aca308) created at:
+    #0 pthread_mutex_init <null>:1063744 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2b973)
+    #1 make_mutex <null>:1063744 (philo:x86_64+0x1000023d5)
+    #2 main <null>:1063744 (philo:x86_64+0x100001c9a)
+
+  Mutex M14 (0x7ffee9aca3b0) created at:
+    #0 pthread_mutex_init <null>:1063744 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2b973)
+    #1 make_mutex <null>:1063744 (philo:x86_64+0x1000023d5)
+    #2 main <null>:1063744 (philo:x86_64+0x100001c9a)
+
+  Thread T1 (tid=76684, running) created by main thread at:
+    #0 pthread_create <null>:1063936 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2a99d)
+    #1 make_thread <null>:1063936 (philo:x86_64+0x100002511)
+    #2 main <null>:1063936 (philo:x86_64+0x100001cbe)
+
+  Thread T4 (tid=76715, finished) created by main thread at:
+    #0 pthread_create <null>:1063936 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x2a99d)
+    #1 make_thread <null>:1063936 (philo:x86_64+0x10000254c)
+    #2 main <null>:1063936 (philo:x86_64+0x100001cbe)
+
+SUMMARY: ThreadSanitizer: data race (philo:x86_64+0x1000018ae) in eating
+==================
+ThreadSanitizer: reported 2 warnings
+zsh: abort      ./philo 3 800 200 200 >> test.txt
