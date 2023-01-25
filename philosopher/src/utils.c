@@ -6,45 +6,34 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:33:53 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 20:07:28 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/25 10:00:07 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
-bool	ttt(t_data *data)
-{
-	bool	tmp;
-
-	// tmp = false;
-	pthread_mutex_lock(&data->check);
-	tmp = data->check_alive;
-	pthread_mutex_unlock(&data->check);
-	printf("%d\n", tmp);
-	return tmp;
-}
-
 time_t	get_time(void)
 {
-	time_t			time;
 	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
-	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-	return (time);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 void	put_action(char *action_name, t_philosopher *philo)
 {
 	// time_t	time;
+
 	// time = get_time() - philo->data->start_time;
-	// printf("1------------%p\n", &philo->data);
-	if (!ttt(philo->data))
+	// pthread_mutex_lock(&philo->data->time);
+	// printf("----------------------%ld\n", time);
+	// pthread_mutex_unlock(&philo->data->time);
+	if (!eating_confirmation(philo->data) || !living_confirmation(philo->data))
+	{
 		return ;
+	}
 	pthread_mutex_lock(&philo->data->print);
-	printf("%ld %d %s\n", get_time() - philo->data->start_time, philo->id,
-			action_name);
-	// printf("1------------%p\n", &philo->data->start_time);
+	printf("%ld %d %s\n", get_time() - philo->data->start_time, philo->id, action_name);
 	pthread_mutex_unlock(&philo->data->print);
 }
 

@@ -6,16 +6,11 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/22 21:04:30 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/25 08:51:17 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
-
-
-
-
-
 
 static int	make_thread(t_data *data)
 {
@@ -23,8 +18,10 @@ static int	make_thread(t_data *data)
 
 	i = 0;
 	data->start_time = get_time();
+	// printf("start----------------------%ld\n", data->start_time);
 	while (i < data->philo_num)
 	{
+		data->philo[i].last_eat_time = data->start_time;
 		pthread_create(&data->philo[i].thread, NULL,
 			&start_philo, &data->philo[i]);
 		i++;
@@ -70,7 +67,8 @@ static int	init_philo(t_data *data)
 		data->philo[i].data = data;
 		i++;
 	}
-	data->check_alive = true;
+	data->still_alive = true;
+	data->still_hungry = true;
 	return (0);
 }
 
@@ -154,7 +152,9 @@ static int	make_mutex(t_data *data)
 	}
 	if (pthread_mutex_init(&data->print, NULL))
 		return (1);
-	if (pthread_mutex_init(&data->check,NULL))
+	if (pthread_mutex_init(&data->check, NULL))
+		return (1);
+	if (pthread_mutex_init(&data->time, NULL))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 05:37:36 by enogawa           #+#    #+#              #
-#    Updated: 2023/01/22 19:33:53 by enogawa          ###   ########.fr        #
+#    Updated: 2023/01/25 09:15:27 by enogawa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDE			=	-I include
 
 CC		  		=	cc
 
-CFLAGS			=	-Wall -Wextra -Werror -pthread -fsanitize=thread
+CFLAGS			=	-Wall -Wextra -Werror -pthread #-fsanitize=thread
 
 # DEBUG_FLAGS 	 =	-g -fsanitize=address -fsanitize=undefined -pthread
 # THREAD_FLAGS	 =	-g -fsanitize=undefined -fsanitize=thread -pthread
