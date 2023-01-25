@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:33:53 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/25 10:00:07 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/25 10:38:48 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ void	put_action(char *action_name, t_philosopher *philo)
 	// printf("----------------------%ld\n", time);
 	// pthread_mutex_unlock(&philo->data->time);
 	if (!eating_confirmation(philo->data) || !living_confirmation(philo->data))
-	{
 		return ;
-	}
 	pthread_mutex_lock(&philo->data->print);
 	printf("%ld %d %s\n", get_time() - philo->data->start_time, philo->id, action_name);
 	pthread_mutex_unlock(&philo->data->print);

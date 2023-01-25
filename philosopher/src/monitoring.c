@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 04:02:59 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/25 09:51:02 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/25 10:50:08 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static bool	check_alive(t_data *data)
 static bool	check_eat_all(t_data *data)
 {
 	int	i;
-	int	eat_times;
+	// int	eat_times;
 	int	num_finished;
 
 	i = 0;
@@ -61,8 +61,8 @@ static bool	check_eat_all(t_data *data)
 	while (i < data->philo_num)
 	{
 		pthread_mutex_lock(&data->philo[i].eat_num_lock);
-		eat_times = data->philo[i].number_eat;
-		if (eat_times == 0)
+		// printf("%d---------------%d\n", data->philo[i].id, data->philo[i].number_eat);
+		if (data->philo[i].number_eat == 0)
 		{
 			num_finished++;
 			if (num_finished == data->philo_num)
