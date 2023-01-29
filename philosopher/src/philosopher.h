@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:07:25 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/24 22:08:38 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/29 18:10:30 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_philosopher
 typedef struct s_data
 {
 	int						philo_num;
+	int						eat_count;
 	time_t					time_die;
 	time_t					time_eat;
 	time_t					time_sleep;
@@ -50,15 +51,16 @@ typedef struct s_data
 	struct s_philosopher	philo[200];
 }	t_data;
 
-int		ft_atoi_philo(char *str);
+int		atoi_philo(char *str);
 void	*start_philo(void *arg);
 void	*monitoring(void *arg);
+int		destroy_philo(t_data *data);
 time_t	get_time(void);
-void	put_action(char *action_name, t_philosopher *philo);
+bool	put_action(char *action_name, t_philosopher *philo, bool dead);
 bool	eating(t_philosopher *philo);
 bool	sleeping(t_philosopher *philo);
 bool	thinking(t_philosopher *philo);
-bool 	living_confirmation(t_data *data);
+bool	living_confirmation(t_data *data);
 bool	eating_confirmation(t_data *data);
 
 #endif

@@ -6,11 +6,32 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:33:53 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/25 10:38:48 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/29 19:31:38 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
+
+int	destroy_philo(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->philo_num)
+	{
+		if (data->philo[i].number_eat)
+		{
+			if (pthread_mutex_destroy(&data->philo->eat_num_lock))
+				return (1);
+		}
+		if (pthread_mutex_destroy(&data->philo[i].left_fork))
+			return (1);
+		i++;
+	}
+	if (pthread_mutex_destroy(&data->print))
+		return (1);
+	return (0);
+}
 
 time_t	get_time(void)
 {
@@ -20,19 +41,26 @@ time_t	get_time(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-void	put_action(char *action_name, t_philosopher *philo)
+bool	put_action(char *action_name, t_philosopher *philo, bool dead)
 {
-	// time_t	time;
-
-	// time = get_time() - philo->data->start_time;
-	// pthread_mutex_lock(&philo->data->time);
-	// printf("----------------------%ld\n", time);
-	// pthread_mutex_unlock(&philo->data->time);
-	if (!eating_confirmation(philo->data) || !living_confirmation(philo->data))
-		return ;
+	if (!dead)
+	{
+		pthread_mutex_lock(&philo->data->check);
+		if (philo->data->eat_count == philo->data->philo_num
+			|| !philo->data->still_alive)
+		{
+			// printf("%d--------------------%d\n", philo->data->eat_count, philo->data->still_alive);
+			pthread_mutex_unlock(&philo->data->check);
+			return (false);
+		}
+	}
 	pthread_mutex_lock(&philo->data->print);
-	printf("%ld %d %s\n", get_time() - philo->data->start_time, philo->id, action_name);
+	printf("%ld %d %s\n", get_time() - philo->data->start_time,
+		philo->id, action_name);
 	pthread_mutex_unlock(&philo->data->print);
+	if (!dead)
+		pthread_mutex_unlock(&philo->data->check);
+	return (true);
 }
 
 static int	ft_isdigit(int c)
@@ -42,7 +70,7 @@ static int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi_philo(char *str)
+int	atoi_philo(char *str)
 {
 	long int	ans;
 	size_t		i;
