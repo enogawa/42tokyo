@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 04:02:59 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/29 19:37:39 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/30 12:50:33 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static bool	check_alive(t_data *data)
 	i = 0;
 	while (i < data->philo_num)
 	{
-		pthread_mutex_lock(&data->time);
+		// pthread_mutex_lock(&data->time);
 		last_eat = data->philo[i].last_eat_time;
-		pthread_mutex_unlock(&data->time);
+		// pthread_mutex_unlock(&data->time);
 		now = get_time();
 		if (now - last_eat >= data->time_die
 			&& data->eat_count != data->philo_num)

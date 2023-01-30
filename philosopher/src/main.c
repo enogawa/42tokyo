@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/29 18:50:14 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/30 12:40:02 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static int	init_philo(t_data *data)
 	while (i < data->philo_num)
 	{
 		data->philo[i].id = i + 1;
-		if (i == data->philo_num)
+		if (i == data->philo_num - 1)
 			data->philo[i].right_fork = &data->philo[0].left_fork;
 		else
-			data->philo[i].right_fork = &data->philo[(i + 1) % data->philo_num].left_fork;
+			data->philo[i].right_fork = &data->philo[(i + 1)].left_fork;
 		data->philo[i].last_eat_time = 0;
 		data->philo[i].data = data;
 		i++;
@@ -99,7 +99,7 @@ static int	make_mutex(t_data *data)
 			return (1);
 		i++;
 	}
-	if (pthread_mutex_init(&data->philo->eat_num_lock, NULL))
+	if (pthread_mutex_init(&data->eat_num_lock, NULL))
 		return (1);
 	if (pthread_mutex_init(&data->print, NULL))
 		return (1);

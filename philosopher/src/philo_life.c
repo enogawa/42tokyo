@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:43:47 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/29 18:51:51 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/30 14:39:28 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ bool	eating(t_philosopher *philo)
 		pthread_mutex_unlock(philo->right_fork);
 		return (false);
 	}
-	pthread_mutex_lock(&philo->eat_num_lock);
+	pthread_mutex_lock(&philo->data->eat_num_lock);
 	philo->number_eat--;
 	if (philo->number_eat == 0)
 		philo->data->eat_count++;
-	pthread_mutex_unlock(&philo->eat_num_lock);
-	pthread_mutex_lock(&philo->data->time);
+	pthread_mutex_unlock(&philo->data->eat_num_lock);
+	// pthread_mutex_lock(&philo->data->time);
 	philo->last_eat_time = get_time();
-	pthread_mutex_unlock(&philo->data->time);
+	// pthread_mutex_unlock(&philo->data->time);
 	usleep(philo->data->time_eat * 900);
 	while (get_time() - philo->last_eat_time < philo->data->time_eat)
 		usleep(100);
@@ -89,7 +89,7 @@ void	*start_philo(void *arg)
 	{
 		if (!put_action("is thinking", philo, false))
 			return (false);
-		usleep(100);
+		usleep(300);
 	}
 	while (1)
 	{

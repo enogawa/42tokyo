@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:33:53 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/29 19:31:38 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/30 13:27:50 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	destroy_philo(t_data *data)
 	{
 		if (data->philo[i].number_eat)
 		{
-			if (pthread_mutex_destroy(&data->philo->eat_num_lock))
+			if (pthread_mutex_destroy(&data->philo->data->eat_num_lock))
 				return (1);
 		}
 		if (pthread_mutex_destroy(&data->philo[i].left_fork))

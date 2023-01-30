@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:07:25 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/29 18:10:30 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/01/30 13:26:40 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_philosopher
 {
 	int					id;
 	int					number_eat;
-	pthread_mutex_t		eat_num_lock;
 	pthread_mutex_t		*right_fork;
 	pthread_mutex_t		left_fork;
 	time_t				last_eat_time;
@@ -45,6 +44,7 @@ typedef struct s_data
 	bool					still_alive;
 	bool					still_hungry;
 	pthread_t				monitor;
+	pthread_mutex_t			eat_num_lock;
 	pthread_mutex_t			time;
 	pthread_mutex_t			print;
 	pthread_mutex_t			check;
