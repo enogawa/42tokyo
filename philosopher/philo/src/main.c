@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
-/*   Updated: 2023/02/03 18:48:46 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/02/04 07:02:42 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ static int	make_mutex(t_data *data)
 			return (1);
 		i++;
 	}
-	if (pthread_mutex_init(&data->eat_num_lock, NULL))
-		return (1);
 	if (pthread_mutex_init(&data->print, NULL))
 		return (1);
 	if (pthread_mutex_init(&data->check, NULL))

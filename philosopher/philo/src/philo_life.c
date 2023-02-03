@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:43:47 by enogawa           #+#    #+#             */
-/*   Updated: 2023/01/31 14:53:48 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/02/04 07:01:53 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ bool	eating(t_philosopher *philo)
 		pthread_mutex_unlock(philo->right_fork);
 		return (false);
 	}
-	pthread_mutex_lock(&philo->data->eat_num_lock);
+	pthread_mutex_lock(&philo->data->check);
 	philo->number_eat--;
 	if (philo->number_eat == 0)
 		philo->data->eat_count++;
-	pthread_mutex_unlock(&philo->data->eat_num_lock);
+	pthread_mutex_unlock(&philo->data->check);
 	pthread_mutex_lock(&philo->data->time);
 	philo->last_eat_time = get_time();
 	pthread_mutex_unlock(&philo->data->time);

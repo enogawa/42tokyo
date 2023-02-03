@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:07:25 by enogawa           #+#    #+#             */
-/*   Updated: 2023/02/03 18:48:25 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/02/04 07:02:14 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_data
 	bool					still_alive;
 	bool					still_hungry;
 	pthread_t				monitor;
-	pthread_mutex_t			eat_num_lock;
 	pthread_mutex_t			time;
 	pthread_mutex_t			print;
 	pthread_mutex_t			check;
