@@ -6,7 +6,7 @@
 /*   By: enogawa <enogawa@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:45:27 by enogawa           #+#    #+#             */
-/*   Updated: 2023/02/04 07:11:07 by enogawa          ###   ########.fr       */
+/*   Updated: 2023/02/04 07:11:29 by enogawa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	make_thread(t_data *data)
 {
 	int	i;
 
-	i = 	0;
+	i = 0;
 	data->start_time = get_time();
 	while (i < data->philo_num)
 	{
